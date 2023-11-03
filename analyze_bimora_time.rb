@@ -251,7 +251,7 @@ def maxCost(combo1, combo2)
   cost
 end
 
-def _shiftCost(combo2)
+def _shiftCost(head1, combo2)
     if combo2.size > 2
       # ?打鍵⇒>3打鍵
       STDERR.puts "_shiftCost: Triple: #{TRIPLE_SHIFT_COST}" if $debug
@@ -260,10 +260,12 @@ def _shiftCost(combo2)
       # ?打鍵⇒>2打鍵
       STDERR.puts "_shiftCost: #{isSandS(combo2[0]) ? "SandS" : "Double"}: #{isSandS(combo2[0]) ? SANDS_COST : SHIFT_COST}" if $debug
       isSandS(combo2[0]) ? SANDS_COST : SHIFT_COST
-    else
-      # ?打鍵⇒>1打鍵
+    elsif !isOneshotCombo(head1)
+      # ?打鍵⇒>1打鍵(ワンショットならノーペナ)
       STDERR.puts "_shiftCost: Unshift: #{UNSHIFT_COST}" if $debug
       UNSHIFT_COST
+    else
+      0.0
     end
 end
 
@@ -310,12 +312,12 @@ def calcMultiStrokeCost(combo1, combo2)
     if isOneshotCombo(head1) || combo1.size > 2 || combo2.size > 2
       # ワンショットか、少なくとも一方が3打鍵のケース
       STDERR.puts "calcMultiStrokeCost: OneShot or either one is Triple" if $debug
-      cost += _shiftCost(combo2)
+      cost += _shiftCost(head1, combo2)
     end
   else
     # どちらかが単打、またはシフトキーが異なるケース
     STDERR.puts "calcMultiStrokeCost: Either one is Single or Shift keys are different" if $debug
-    cost = maxCost(combo1, combo2) + _shiftCost(combo2)
+    cost = maxCost(combo1, combo2) + _shiftCost(head1, combo2)
   end
   if isFiloCombo(head1) || isFiloCombo(head2)
     # どちらかが先押し後離しだった場合
