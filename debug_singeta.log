@@ -15,7 +15,7 @@ calcCost: ENTER: 26, 28
 calcCost: LEAVE: cost=3.93
 calcListCost: new minCost=3.93
 calcListCost: LEAVE: minCost=3.93
-10: cost=3.93, score=19881.87, total_score=290630.03
+10: cost=3.93, score=19881.87, total_score=278187.75
 ----
 100: word=され, count=1825, total_count=298769
 calcListCost: ENTER
@@ -23,16 +23,16 @@ calcCost: ENTER: 828:21, 827:22
 calcMultiStrokeCost: ENTER: 828:21, 827:22
 calcMultiStrokeCost: Either one is Single or Shift keys are different
 _maxCost: x=828, y=827, oldCost=0.0: resultCost=5.83
-_maxCost: x=828, y=22, oldCost=5.83: resultCost=6.8
-_maxCost: x=21, y=827, oldCost=6.8: resultCost=6.8
-_maxCost: x=21, y=22, oldCost=6.8: resultCost=6.87
-maxCost: 828:21, 827:22, : cost=6.87
+_maxCost: x=828, y=22, oldCost=5.83: resultCost=5.83
+_maxCost: x=21, y=827, oldCost=5.83: resultCost=5.83
+_maxCost: x=21, y=22, oldCost=5.83: resultCost=5.83
+maxCost: 828:21, 827:22, : cost=5.83
 _shiftCost: Double: 2.0
-calcMultiStrokeCost: LEAVE: cost=8.87
-calcCost: LEAVE: cost=8.87
-calcListCost: new minCost=8.870000000000001
-calcListCost: LEAVE: minCost=8.870000000000001
-100: cost=8.87, score=16187.75, total_score=1841849.91
+calcMultiStrokeCost: LEAVE: cost=7.83
+calcCost: LEAVE: cost=7.83
+calcListCost: new minCost=7.83
+calcListCost: LEAVE: minCost=7.83
+100: cost=7.83, score=14289.75, total_score=1667756.26
 ----
 500: word=りょく, count=558, total_count=681697
 calcListCost: ENTER
@@ -40,42 +40,42 @@ calcCost: ENTER: 818:20, 25
 calcMultiStrokeCost: ENTER: 818:20, 25
 calcMultiStrokeCost: Either one is Single or Shift keys are different
 _maxCost: x=818, y=25, oldCost=0.0: resultCost=4.67
-_maxCost: x=20, y=25, oldCost=4.67: resultCost=5.27
-maxCost: 818:20, 25, : cost=5.27
-calcMultiStrokeCost: LEAVE: cost=5.27
-calcCost: LEAVE: cost=5.27
-calcListCost: new minCost=5.27
-calcListCost: LEAVE: minCost=5.27
-500: cost=5.27, score=2940.66, total_score=4591636.86
+_maxCost: x=20, y=25, oldCost=4.67: resultCost=4.9
+maxCost: 818:20, 25, : cost=4.9
+calcMultiStrokeCost: LEAVE: cost=4.9
+calcCost: LEAVE: cost=4.9
+calcListCost: new minCost=4.9011
+calcListCost: LEAVE: minCost=4.9011
+500: cost=4.9, score=2734.81, total_score=4088585.39
 ----
 1000: word=がじ, count=266, total_count=870190
 calcListCost: ENTER
 calcCost: ENTER: 18, 821:27
 calcMultiStrokeCost: ENTER: 18, 821:27
 calcMultiStrokeCost: Either one is Single or Shift keys are different
-_maxCost: x=18, y=821, oldCost=0.0: resultCost=7.03
-_maxCost: x=18, y=27, oldCost=7.03: resultCost=7.03
+_maxCost: x=18, y=821, oldCost=0.0: resultCost=5.98
+_maxCost: x=18, y=27, oldCost=5.98: resultCost=7.03
 maxCost: 18, 821:27, : cost=7.03
 _shiftCost: Double: 2.0
 calcMultiStrokeCost: LEAVE: cost=9.03
 calcCost: LEAVE: cost=9.03
 calcListCost: new minCost=9.030000000000001
 calcListCost: LEAVE: minCost=9.030000000000001
-1000: cost=9.03, score=2401.98, total_score=6027801.73
+1000: cost=9.03, score=2401.98, total_score=5339693.62
 ----
 1500: word=どか, count=158, total_count=973638
 calcListCost: ENTER
 calcCost: ENTER: 821:17, 22
 calcMultiStrokeCost: ENTER: 821:17, 22
 calcMultiStrokeCost: Either one is Single or Shift keys are different
-_maxCost: x=821, y=22, oldCost=0.0: resultCost=6.87
-_maxCost: x=17, y=22, oldCost=6.87: resultCost=7.43
-maxCost: 821:17, 22, : cost=7.43
-calcMultiStrokeCost: LEAVE: cost=7.43
-calcCost: LEAVE: cost=7.43
-calcListCost: new minCost=7.43
-calcListCost: LEAVE: minCost=7.43
-1500: cost=7.43, score=1173.94, total_score=6851912.05
+_maxCost: x=821, y=22, oldCost=0.0: resultCost=5.43
+_maxCost: x=17, y=22, oldCost=5.43: resultCost=6.32
+maxCost: 821:17, 22, : cost=6.32
+calcMultiStrokeCost: LEAVE: cost=6.32
+calcCost: LEAVE: cost=6.32
+calcListCost: new minCost=6.315499999999999
+calcListCost: LEAVE: minCost=6.315499999999999
+1500: cost=6.32, score=997.85, total_score=6057763.57
 ----
 2000: word=しゃい, count=96, total_count=1036020
 calcListCost: ENTER
@@ -89,7 +89,7 @@ calcMultiStrokeCost: LEAVE: cost=5.9
 calcCost: LEAVE: cost=5.9
 calcListCost: new minCost=5.9
 calcListCost: LEAVE: minCost=5.9
-2000: cost=5.9, score=566.4, total_score=7341093.36
+2000: cost=5.9, score=566.4, total_score=6486641.41
 ----
 2500: word=なぶ, count=60, total_count=1074299
 calcListCost: ENTER
@@ -97,7 +97,7 @@ calcCost: ENTER: 29, 39
 calcCost: LEAVE: cost=8.17
 calcListCost: new minCost=8.17
 calcListCost: LEAVE: minCost=8.17
-2500: cost=8.17, score=490.2, total_score=7656211.19
+2500: cost=8.17, score=490.2, total_score=6764740.56
 ----
 3000: word=やわ, count=37, total_count=1097938
 calcListCost: ENTER
@@ -107,73 +107,73 @@ calcMultiStrokeCost: Same Shift
 _maxCost: x=18, y=35, oldCost=0.0: resultCost=5.83
 maxCost: 18, 35, : cost=5.83
 calcMultiStrokeCost: OneShot
-_maxCost: x=821, y=821, oldCost=5.83: resultCost=7.0
+_maxCost: x=821, y=821, oldCost=5.83: resultCost=5.83
 calcMultiStrokeCost: OneShot or either one is Triple
 _shiftCost: Double: 2.0
-calcMultiStrokeCost: LEAVE: cost=9.0
-calcCost: LEAVE: cost=9.0
-calcListCost: new minCost=9.0
-calcListCost: LEAVE: minCost=9.0
-3000: cost=9.0, score=333.0, total_score=7852816.32
+calcMultiStrokeCost: LEAVE: cost=7.83
+calcCost: LEAVE: cost=7.83
+calcListCost: new minCost=7.83
+calcListCost: LEAVE: minCost=7.83
+3000: cost=7.83, score=289.71, total_score=6938235.35
 ----
 3500: word=びみ, count=24, total_count=1113028
 calcListCost: ENTER
 calcCost: ENTER: 821:25, 822:18
 calcMultiStrokeCost: ENTER: 821:25, 822:18
 calcMultiStrokeCost: Either one is Single or Shift keys are different
-_maxCost: x=821, y=822, oldCost=0.0: resultCost=6.87
-_maxCost: x=821, y=18, oldCost=6.87: resultCost=6.87
-_maxCost: x=25, y=822, oldCost=6.87: resultCost=6.87
-_maxCost: x=25, y=18, oldCost=6.87: resultCost=6.87
-maxCost: 821:25, 822:18, : cost=6.87
+_maxCost: x=821, y=822, oldCost=0.0: resultCost=5.43
+_maxCost: x=821, y=18, oldCost=5.43: resultCost=5.43
+_maxCost: x=25, y=822, oldCost=5.43: resultCost=5.43
+_maxCost: x=25, y=18, oldCost=5.43: resultCost=5.43
+maxCost: 821:25, 822:18, : cost=5.43
 _shiftCost: Double: 2.0
-calcMultiStrokeCost: LEAVE: cost=8.87
-calcCost: LEAVE: cost=8.87
-calcListCost: new minCost=8.870000000000001
-calcListCost: LEAVE: minCost=8.870000000000001
-3500: cost=8.87, score=212.88, total_score=7977922.21
+calcMultiStrokeCost: LEAVE: cost=7.43
+calcCost: LEAVE: cost=7.43
+calcListCost: new minCost=7.430735
+calcListCost: LEAVE: minCost=7.430735
+3500: cost=7.43, score=178.34, total_score=7049599.32
 ----
 4000: word=ぼか, count=15, total_count=1122704
 calcListCost: ENTER
 calcCost: ENTER: 827:32, 22
 calcMultiStrokeCost: ENTER: 827:32, 22
 calcMultiStrokeCost: Either one is Single or Shift keys are different
-_maxCost: x=827, y=22, oldCost=0.0: resultCost=5.97
-_maxCost: x=32, y=22, oldCost=5.97: resultCost=7.23
-maxCost: 827:32, 22, : cost=7.23
-calcMultiStrokeCost: LEAVE: cost=7.23
-calcCost: LEAVE: cost=7.23
-calcListCost: new minCost=7.23
-calcListCost: LEAVE: minCost=7.23
-4000: cost=7.23, score=108.45, total_score=8060375.62
+_maxCost: x=827, y=22, oldCost=0.0: resultCost=5.07
+_maxCost: x=32, y=22, oldCost=5.07: resultCost=5.72
+maxCost: 827:32, 22, : cost=5.72
+calcMultiStrokeCost: LEAVE: cost=5.72
+calcCost: LEAVE: cost=5.72
+calcListCost: new minCost=5.715315
+calcListCost: LEAVE: minCost=5.715315
+4000: cost=5.72, score=85.73, total_score=7121999.87
 ----
 4500: word=じゅっ, count=10, total_count=1128830
 calcListCost: ENTER
 calcCost: ENTER: 811:18, 24
 calcMultiStrokeCost: ENTER: 811:18, 24
 calcMultiStrokeCost: Either one is Single or Shift keys are different
-_maxCost: x=811, y=24, oldCost=0.0: resultCost=7.63
-_maxCost: x=18, y=24, oldCost=7.63: resultCost=7.63
-maxCost: 811:18, 24, : cost=7.63
-calcMultiStrokeCost: LEAVE: cost=7.63
-calcCost: LEAVE: cost=7.63
-calcListCost: new minCost=7.63
-calcListCost: LEAVE: minCost=7.63
-4500: cost=7.63, score=76.3, total_score=8114254.19
+_maxCost: x=811, y=24, oldCost=0.0: resultCost=6.03
+_maxCost: x=18, y=24, oldCost=6.03: resultCost=6.09
+maxCost: 811:18, 24, : cost=6.09
+calcMultiStrokeCost: LEAVE: cost=6.09
+calcCost: LEAVE: cost=6.09
+calcListCost: new minCost=6.0945
+calcListCost: LEAVE: minCost=6.0945
+4500: cost=6.09, score=60.95, total_score=7169371.87
 ----
 5000: word=ぽし, count=6, total_count=1132794
 calcListCost: ENTER
 calcCost: ENTER: 821:38, 28
 calcMultiStrokeCost: ENTER: 821:38, 28
 calcMultiStrokeCost: Either one is Single or Shift keys are different
-_maxCost: x=821, y=28, oldCost=0.0: resultCost=5.03
-_maxCost: x=38, y=28, oldCost=5.03: resultCost=6.13
+_maxCost: x=821, y=28, oldCost=0.0: resultCost=4.68
+_maxCost: x=38, y=28, oldCost=4.68: resultCost=6.13
 maxCost: 821:38, 28, : cost=6.13
 calcMultiStrokeCost: LEAVE: cost=6.13
 calcCost: LEAVE: cost=6.13
 calcListCost: new minCost=6.13
 calcListCost: LEAVE: minCost=6.13
-5000: cost=6.13, score=36.78, total_score=8149101.76
+5000: cost=6.13, score=36.78, total_score=7200057.13
 ----
 5500: word=こぜ, count=4, total_count=1135194
 calcListCost: ENTER
@@ -181,44 +181,44 @@ calcCost: ENTER: 17, 828:30
 calcMultiStrokeCost: ENTER: 17, 828:30
 calcMultiStrokeCost: Either one is Single or Shift keys are different
 _maxCost: x=17, y=828, oldCost=0.0: resultCost=5.2
-_maxCost: x=17, y=30, oldCost=5.2: resultCost=5.67
-maxCost: 17, 828:30, : cost=5.67
+_maxCost: x=17, y=30, oldCost=5.2: resultCost=5.2
+maxCost: 17, 828:30, : cost=5.2
 _shiftCost: Double: 2.0
-calcMultiStrokeCost: LEAVE: cost=7.67
-calcCost: LEAVE: cost=7.67
-calcListCost: new minCost=7.67
-calcListCost: LEAVE: minCost=7.67
-5500: cost=7.67, score=30.68, total_score=8170213.67
+calcMultiStrokeCost: LEAVE: cost=7.2
+calcCost: LEAVE: cost=7.2
+calcListCost: new minCost=7.2
+calcListCost: LEAVE: minCost=7.2
+5500: cost=7.2, score=28.8, total_score=7218655.23
 ----
 6000: word=ふぃか, count=2, total_count=1136616
 calcListCost: ENTER
 calcCost: ENTER: 827:13, 22
 calcMultiStrokeCost: ENTER: 827:13, 22
 calcMultiStrokeCost: Either one is Single or Shift keys are different
-_maxCost: x=827, y=22, oldCost=0.0: resultCost=5.97
-_maxCost: x=13, y=22, oldCost=5.97: resultCost=7.03
-maxCost: 827:13, 22, : cost=7.03
-calcMultiStrokeCost: LEAVE: cost=7.03
-calcCost: LEAVE: cost=7.03
-calcListCost: new minCost=7.03
-calcListCost: LEAVE: minCost=7.03
-6000: cost=7.03, score=14.06, total_score=8183006.7
+_maxCost: x=827, y=22, oldCost=0.0: resultCost=5.07
+_maxCost: x=13, y=22, oldCost=5.07: resultCost=5.56
+maxCost: 827:13, 22, : cost=5.56
+calcMultiStrokeCost: LEAVE: cost=5.56
+calcCost: LEAVE: cost=5.56
+calcListCost: new minCost=5.557215
+calcListCost: LEAVE: minCost=5.557215
+6000: cost=5.56, score=11.11, total_score=7229892.6
 ----
 6500: word=そゆ, count=1, total_count=1137438
 calcListCost: ENTER
 calcCost: ENTER: 821:29, 827:24
 calcMultiStrokeCost: ENTER: 821:29, 827:24
 calcMultiStrokeCost: Either one is Single or Shift keys are different
-_maxCost: x=821, y=827, oldCost=0.0: resultCost=4.09
-_maxCost: x=821, y=24, oldCost=4.09: resultCost=7.43
-_maxCost: x=29, y=827, oldCost=7.43: resultCost=7.43
-_maxCost: x=29, y=24, oldCost=7.43: resultCost=7.43
-maxCost: 821:29, 827:24, : cost=7.43
+_maxCost: x=821, y=827, oldCost=0.0: resultCost=3.8
+_maxCost: x=821, y=24, oldCost=3.8: resultCost=5.87
+_maxCost: x=29, y=827, oldCost=5.87: resultCost=7.13
+_maxCost: x=29, y=24, oldCost=7.13: resultCost=7.13
+maxCost: 821:29, 827:24, : cost=7.13
 _shiftCost: Double: 2.0
-calcMultiStrokeCost: LEAVE: cost=9.43
-calcCost: LEAVE: cost=9.43
-calcListCost: new minCost=9.43
-calcListCost: LEAVE: minCost=9.43
-6500: cost=9.43, score=9.43, total_score=8190395.08
+calcMultiStrokeCost: LEAVE: cost=9.13
+calcCost: LEAVE: cost=9.13
+calcListCost: new minCost=9.129999999999999
+calcListCost: LEAVE: minCost=9.129999999999999
+6500: cost=9.13, score=9.13, total_score=7236386.63
 ----
-score = 7.2; total_score = 8191229.84, total_count = 1137532
+score = 6.36; total_score = 7237132.61, total_count = 1137532
