@@ -12,7 +12,7 @@ MoraFile = 'kouy/kouy_2mora.txt'
 #MoraFile = 'oooka/fusinotani.2mora.txt'
 
 # 左手に対する時間補正
-$doLeftHandAdust = true
+$doLeftHandAdjust = true
 LEFTHAND_FIRST_ADJUST_FACTOR = 0.93
 LEFTHAND_SECOND_ADJUST_FACTOR = 0.85
 
@@ -56,7 +56,7 @@ end
 $time_table = []
 
 def _lefthand_adjust(list, bLeft)
-  if $doLeftHandAdust
+  if $doLeftHandAdjust
     for i in 0...30
       if i % 10 < 5
         list[i] *= LEFTHAND_SECOND_ADJUST_FACTOR
