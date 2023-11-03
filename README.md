@@ -70,7 +70,7 @@ score = 6.76; total_score = 7693749.63, total_count = 1137532
 `score = max(cost(A, X), cost(A, Y), cost(A, Z), cost(B, X), cost(B, Y), cost(B, Z)) + TRIPLE_SHIFT_PENALTY` となる。
 
 ## ペナルティ
-- 同時打鍵から単打に移行 = 1.0 (`UNSHIFT_PENALTY`)
+- 同時打鍵から単打に移行 = 1.0 (`UNSHIFT_PENALTY`)<br/>
   ただし、ワンショットコンボから単打への移行では、ロールオーバーしても同時打鍵と判定されることはないので、同時打鍵解除のためのペナルティは不要。
 - 単打２連接が同時打鍵と重複 = 2.0 (`DECOMBO_PENALTY`)
 - ２キー同時打鍵 = 2.0 (`SHIFT_PENALTY`)
