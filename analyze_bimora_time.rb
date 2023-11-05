@@ -1,7 +1,7 @@
 #! /usr/bin/env ruby
 
 $debug = true
-$milestoneDebug = true
+$milestoneDebug = false
 $timeTableDump = false
 $strokeTableDump = false
 
@@ -12,7 +12,7 @@ MoraFile = 'kouy/kouy_2mora.txt'
 #MoraFile = 'oooka/fusinotani.2mora.txt'
 
 # 左手に対する時間補正
-$doLeftHandAdjust = true
+$doLeftHandAdjust = ENV['ADJUST_TIME_TABLE'] == 'false' ? false : true
 LEFTHAND_FIRST_ADJUST_FACTOR = 0.93
 LEFTHAND_SECOND_ADJUST_FACTOR = 0.85
 
@@ -25,17 +25,40 @@ PENALTY_OUTRIGHT = [1.5, 2.0, 2.5, 0.5, 1.0, 0.5, 1.0, 0.5, 1.0]
 # スペースキーに対するペナルティ
 SPACE_PENALTY = 1.0
 
+# 各種シフトキーのオフセット
 SANDS_OFFSET = 200
-SUCC_COMBO_OFFSET = 500
-ONESHOT_OFFSET = 800
+SUCC_COMBO_OFFSET = 500 # 連続シフト
+ONESHOT_OFFSET = 800    # ワンショット
 FPLR_OFFSET = 900       # 先押し後離し
 
-UNSHIFT_COST = 1.0
-DECOMBO_COST = 2.0
-SHIFT_COST = 2.0
-SANDS_COST = 3.0
-FPLR_COST = 4.0
-TRIPLE_SHIFT_COST = 5.0
+# ペナルティコストの既定値
+$decomboShiftCost = 1.0   # 同時打鍵から単打への移行コスト
+$preventComboCost = 2.0   # 単打２連接が同時打鍵と重複している場合に、単打2連接として判定させるためのコスト
+$comboShiftCost = 2.0     # 第2モーラが２キー同時打鍵の場合のコスト
+$sandsComboCost = 3.0     # 第2モーラがSandS同時打鍵の場合のコスト
+$sandsDecomboCost = 3.0   # SandS同時打鍵から単打への移行コスト
+$fprtComboCost = 4.0      # 第2モーラが先押し後離し打鍵の場合のコスト
+$tripleComboCost = 5.0    # 第2モーラが２キー同時打鍵の場合のコスト
+
+# ペナルティコストの計算に平均連接運指コストに対する係数を使う
+$useCostRate = true
+DECOMBO_SHIFT_COST_RATE = 0.2
+PREVENT_COMBO_COST_RATE = 0.4
+COMBO_SHIFT_COST_RATE = 0.4
+SANDS_COMBO_COST_RATE = 0.4
+SANDS_DECOMBO_COST_RATE = 0.4
+FPLR_COMBO_COST_RATE = 1.0
+TRIPLE_COMBO_COST_RATE = 0.5
+
+$multiStroke = false
+# ロールオーバー可の場合の加速係数
+KSK_FACTOR = ENV['KSK_FACTOR'] ? ENV['KSK_FACTOR'].to_f : 1.0
+#KSK_FACTOR = 0.7
+STDERR.puts "KSK_FACTOR=#{KSK_FACTOR.round(2)}"
+
+def isSingle(strk)
+  strk < 100
+end
 
 def isSandS(strk)
   strk >= SANDS_OFFSET && strk < SUCC_COMBO_OFFSET
@@ -49,7 +72,7 @@ def isOneshotCombo(strk)
   strk >= ONESHOT_OFFSET && strk < FPLR_OFFSET
 end
 
-def isFiloCombo(strk)
+def isFplrCombo(strk)
   strk >= FPLR_OFFSET
 end
 
@@ -67,7 +90,9 @@ def _lefthand_adjust(list, bLeft)
   list
 end
 
-# 30x30 の読み込み
+#-------------------------------------------------------------------
+# 30x30 連接運指時間表の読み込み
+#-------------------------------------------------------------------
 time_table_31x31 = []
 lineIdx = 0
 File.readlines(TimeTableFile).each do |line|
@@ -78,6 +103,28 @@ end
 #time_table_31x31.each {|items|
 #  STDERR.puts items.map{|x| x.round(2).to_s}.join("\t")
 #}
+
+if $useCostRate
+  meanFingeringCost = time_table_31x31.map{|list| list.sum}.sum / time_table_31x31.map{|list| list.size}.sum
+  $decomboShiftCost = meanFingeringCost * DECOMBO_SHIFT_COST_RATE
+  $preventComboCost = meanFingeringCost * PREVENT_COMBO_COST_RATE
+  $comboShiftCost = meanFingeringCost * COMBO_SHIFT_COST_RATE
+  $sandsComboCost = meanFingeringCost * SANDS_COMBO_COST_RATE
+  $sandsDecomboCost = meanFingeringCost * SANDS_DECOMBO_COST_RATE
+  $fprtComboCost = meanFingeringCost * FPLR_COMBO_COST_RATE
+  $tripleComboCost = meanFingeringCost * TRIPLE_COMBO_COST_RATE
+
+  if $debug && !$timeTableDump
+    STDERR.puts "meanFingeringCost=#{meanFingeringCost.round(2)}"
+    STDERR.puts "decomboShiftCost=#{$decomboShiftCost.round(2)}"
+    STDERR.puts "preventComboCost=#{$preventComboCost.round(2)}"
+    STDERR.puts "comboShiftCost=#{$comboShiftCost.round(2)}"
+    STDERR.puts "sandsComboCost=#{$sandsComboCost.round(2)}"
+    STDERR.puts "sandsDecomboCost=#{$sandsDecomboCost.round(2)}"
+    STDERR.puts "fprtComboCost=#{$fprtComboCost.round(2)}"
+    STDERR.puts "tripleComboCost=#{$tripleComboCost.round(2)}"
+  end
+end
 
 # Spaceキーに対応する部分を外挿
 for i in 0...30
@@ -179,11 +226,19 @@ def _calcStrokeCost(list)
   cost
 end
 
+#-------------------------------------------------------------------
 # 配列のストローク表の読み込み
+#-------------------------------------------------------------------
 while line = gets
+  if line =~ /# *multistroke/i
+    $multiStroke = true
+    STDERR.puts "\n---- multiStroke ----" if $debug && !$strokeTableDump
+    next
+  end
   items = line.strip.split(/\t/)
   word = items.delete_at(0)
   list = items.map{|x| x.to_i}
+  next unless word && word.length > 0 && list && list.size > 0
   if isSandS(list[0])
     # SandS
     list[0] %= 100
@@ -208,6 +263,10 @@ while line = gets
   STDERR.puts "#{word}: #{list.join(',')}" if $strokeTableDump
 end
 
+# ゲタ文字はホームポジションの位置とする
+$stroke_list_map["〓"] = [[20], [21], [22], [23], [26], [27], [28], [29]]
+
+#-------------------------------------------------------------------
 # 以下、計算のメイン
 total_count = 0
 total_score = 0.0
@@ -223,20 +282,27 @@ def _makeStrokesListStr(list)
   list.map{|x| _makeStrokeListStr(x)}.join('/')
 end
 
-def _maxCost(x, y, cost)
-  oldCost = cost
+def _interStrokeCost(x, y)
   idx1 = x % 100
   idx2 = y % 100
   if idx1 < $time_table.size && idx2 < $time_table.size
-    if cost < $time_table[idx1][idx2]
-      cost = $time_table[idx1][idx2]
-    end
+    STDERR.puts "_interStrokeCost(#{x}, #{y})=#{$time_table[idx1][idx2].round(2)}" if $debug
+    $time_table[idx1][idx2]
   else
-    STDERR.puts "out of range: _maxCost(#{x}, #{y})" if $debug
-    cost = ERROR_COST
+    STDERR.puts "out of range: _interStrokeCost(#{x}, #{y})" if $debug
+    ERROR_COST
   end
-  STDERR.puts "_maxCost: x=#{x}, y=#{y}, oldCost=#{oldCost.round(2)}: resultCost=#{cost.round(2)}" if $debug
-  cost
+end
+
+def _maxCost(x, y, cost)
+  oldCost = cost
+  resultCost = cost
+  cost = _interStrokeCost(x, y)
+  if resultCost < cost
+    resultCost = cost
+  end
+  STDERR.puts "_maxCost: x=#{x}, y=#{y}, oldCost=#{oldCost.round(2)}: resultCost=#{resultCost.round(2)}" if $debug
+  resultCost
 end
 
 # 2つの打鍵列間の最大コスト
@@ -252,21 +318,28 @@ def maxCost(combo1, combo2)
 end
 
 def _shiftCost(head1, combo2)
-    if combo2.size > 2
-      # ?打鍵⇒>3打鍵
-      STDERR.puts "_shiftCost: Triple: #{TRIPLE_SHIFT_COST}" if $debug
-      TRIPLE_SHIFT_COST
-    elsif combo2.size == 2
-      # ?打鍵⇒>2打鍵
-      STDERR.puts "_shiftCost: #{isSandS(combo2[0]) ? "SandS" : "Double"}: #{isSandS(combo2[0]) ? SANDS_COST : SHIFT_COST}" if $debug
-      isSandS(combo2[0]) ? SANDS_COST : SHIFT_COST
-    elsif !isOneshotCombo(head1)
-      # ?打鍵⇒>1打鍵(ワンショットならノーペナ)
-      STDERR.puts "_shiftCost: Unshift: #{UNSHIFT_COST}" if $debug
-      UNSHIFT_COST
-    else
+  if combo2.size == 1 || isSingle(combo2[0])
+    # ?打鍵⇒>1打鍵
+    if head1 == '〓' || isSingle(head1) || isOneshotCombo(head1)
+      # 前が、げた文字or多スクトークorワンショットならノーペナ
+      STDERR.puts "_shiftCost: OneShot: 0.0" if $debug
       0.0
+    elsif isSandS(head1)
+      STDERR.puts "_shiftCost: SandS Decombo: #{$sandsDecomboCost.round(2)}" if $debug
+      $sandsDecomboCost
+    else
+      STDERR.puts "_shiftCost: Decombo: #{$decomboShiftCost.round(2)}" if $debug
+      $decomboShiftCost
     end
+  elsif combo2.size > 2
+    # ?打鍵⇒>3打鍵
+    STDERR.puts "_shiftCost: Triple: #{$tripleComboCost.round(2)}" if $debug
+    $tripleComboCost
+  else #combo2.size == 2
+    # ?打鍵⇒>2打鍵
+    STDERR.puts "_shiftCost: #{isSandS(combo2[0]) ? "SandS" : "Double"}: #{isSandS(combo2[0]) ? $sandsComboCost.round(2) : $comboShiftCost.round(2)}" if $debug
+    isSandS(combo2[0]) ? $sandsComboCost : $comboShiftCost
+  end
 end
 
 def _xchgShift(combo)
@@ -294,42 +367,112 @@ def _procSameShift(combo1, combo2)
   end
 end
 
-# どちらかが同時打鍵のときのコスト計算
+def _getShiftKind(head)
+  if isSandS(head)
+    "SandS"
+  elsif isSuccessiveCombo(head)
+    "Successive"
+  elsif isOneshotCombo(head)
+    "OneShot"
+  elsif isFplrCombo(head)
+    "FPLR"
+  else
+    "Single"
+  end
+end
+
+# どちらかが同時打鍵or多ストロークのときのコスト計算
 def calcMultiStrokeCost(combo1, combo2)
   _procSameShift(combo1, combo2)
-  STDERR.puts "calcMultiStrokeCost: ENTER: #{_makeStrokeListStr(combo1)}, #{_makeStrokeListStr(combo2)}" if $debug
+  STDERR.puts "calcMultiStrokeCost: ENTER: #{_makeStrokeListStr(combo1)} (#{_getShiftKind(combo1[0])}), #{_makeStrokeListStr(combo2)} (#{_getShiftKind(combo2[0])})" if $debug
   head1 = combo1[0]
   head2 = combo2[0]
-  if head1 == head2 && (combo1.size >= 2 && combo2.size >= 2)
-    # どちらも2打鍵以上で同じシフトキーが続くケース
-    STDERR.puts "calcMultiStrokeCost: Same Shift" if $debug
-    cost = maxCost(combo1[1..-1], combo2[1..-1])
-    if isOneshotCombo(head1)
-      # ワンショットなら、シフトコストも考慮
-      STDERR.puts "calcMultiStrokeCost: OneShot" if $debug
-      cost = _maxCost(head1, head2, cost)
+  if isFplrCombo(head2)
+    # 後が先押し後離しの場合
+    STDERR.puts "calcMultiStrokeCost: second is FPLR" if $debug
+    if isFplrCombo(head1)
+      # 前も先押し後離しの場合
+      if head1 == head2
+        # 前も同じシフトキー
+        if combo2.size > 2
+          # 後が3打以上: [X, A, B] -> [X, C, D]: max(cost(A->C), cost(B, C)) + cost(C->D)
+          cost = maxCost(combo1[-1..-1], combo2[1..-2]) + _interStrokeCost(combo2[-2], combo2[-1])
+        else
+          cost = maxCost(combo1[-1..-1], combo2[-1..-1])
+        end
+      else
+        # 前が異なるシフトキーの先押し後離しの場合
+        cost = maxCost(combo1[-1..-1], combo2[0..-2]) + _interStrokeCost(combo2[-2], combo2[-1])
+      end
+    else
+      if head1 == head2 && !isOneshotCombo(head1)
+        # 前も同じシフトキー
+        if combo2.size > 2
+          # 後が3打以上: [X, A, B] -> [X, C, D]: max(cost(A->C), cost(B, C)) + cost(C->D)
+          cost = maxCost(combo1[1..-1], combo2[1..-2]) + _interStrokeCost(combo2[-2], combo2[-1])
+        else
+          cost = maxCost(combo1[1..-1], combo2[-1..-1])
+        end
+      else
+        # 前が異なるシフトキーかワンショットの場合
+        cost = maxCost(combo1, combo2[0..-2]) + _interStrokeCost(combo2[-2], combo2[-1])
+      end
     end
-    if isOneshotCombo(head1) || combo1.size > 2 || combo2.size > 2
-      # ワンショットか、少なくとも一方が3打鍵のケース
-      STDERR.puts "calcMultiStrokeCost: OneShot or either one is Triple" if $debug
-      cost += _shiftCost(head1, combo2)
+  elsif isFplrCombo(head1)
+    # 前が先押し後離しの場合
+    if head1 == head2
+      # 前も同じシフトキー
+      cost = maxCost(combo1[-1..-1], combo2[1..-1])
+    else
+      # 前が異なるシフトキーの場合
+      cost = maxCost(combo1[-1..-1], combo2[0..-1]) + _shiftCost(head1, combo2)
     end
-  else
-    # どちらかが単打、またはシフトキーが異なるケース
-    STDERR.puts "calcMultiStrokeCost: Either one is Single or Shift keys are different" if $debug
+  elsif isOneshotCombo(head1)
+    # 前がワンショット
+    STDERR.puts "calcMultiStrokeCost: first is OneShot" if $debug
     cost = maxCost(combo1, combo2) + _shiftCost(head1, combo2)
+  else
+    if head1 == head2 && !isSingle(head1) && (combo1.size >= 2 && combo2.size >= 2)
+      # どちらも2打鍵以上で同じシフトキーが続くケース
+      STDERR.puts "calcMultiStrokeCost: Same Shift and both.size >= 2" if $debug
+      cost = maxCost(combo1[1..-1], combo2[1..-1])
+      if combo2.size > 2
+        # 後が3打鍵のケースなら tripleComboCostを加算
+        STDERR.puts "calcMultiStrokeCost: second.size >= 3" if $debug
+        cost += _shiftCost(head1, combo2)
+      end
+    elsif isSingle(head2)
+      # 後が多ストロークの場合
+      STDERR.puts "calcMultiStrokeCost: second is multi-stroke" if $debug
+      if isSingle(head1)
+        cost = _interStrokeCost(combo1[-1], head2) * KSK_FACTOR
+      else
+        cost = maxCost(combo1, combo2[0,1]) + _shiftCost(head1, combo2)
+      end
+      for i in 0...combo2.size-1
+        cost += _interStrokeCost(combo2[i], combo2[i+1]) * KSK_FACTOR
+      end
+    elsif isSingle(head1)
+      # 前が多ストロークの場合
+      STDERR.puts "calcMultiStrokeCost: first is multi-stroke" if $debug
+      cost = maxCost(combo1[-1,1], combo2) + _shiftCost(head1, combo2)
+    else
+      # どちらかが単打、またはシフトキーが異なるケース
+      STDERR.puts "calcMultiStrokeCost: Either one is Single or Shift keys are different" if $debug
+      cost = maxCost(combo1, combo2) + _shiftCost(head1, combo2)
+    end
   end
-  if isFiloCombo(head1) || isFiloCombo(head2)
-    # どちらかが先押し後離しだった場合
-    cost += FPLR_COST if isFiloCombo(head1)
-    cost += FPLR_COST if head1 != head2 && isFiloCombo(head2)
+  if isFplrCombo(head1)
+    # 前が先押し後離しの場合
+    STDERR.puts "calcMultiStrokeCost: first is FPLR" if $debug
+    cost += $fprtComboCost
   end
   STDERR.puts "calcMultiStrokeCost: LEAVE: cost=#{cost.round(2)}" if $debug
   cost
 end
 
 def _isSameCombo(combo1, combo2)
-  return false if combo1.size != combo2.size
+  return false if combo1.size != combo2.size || isSingle(combo1[0]) || isSingle(combo2[0])
   i = 0
   combo1.each {|x|
     return false if x != combo2[i]
@@ -338,10 +481,23 @@ def _isSameCombo(combo1, combo2)
   return true
 end
 
+def _handle_tsu(strokes1, strokes2)
+    if strokes2[0] == 99
+      # 後が「っ」なら、T にする (「った」「って」「っと」で 58%を占めるため
+      strokes2[0] = 14  # T
+    end
+    if strokes1[0] == 99
+      # 前が「っ」なら、後の先頭ストロークを重ねる
+      strokes1[0] = strokes2[0]
+    end
+end
+
 def calcCost(strokes1, strokes2)
   STDERR.puts "calcCost: ENTER: #{_makeStrokeListStr(strokes1)}, #{_makeStrokeListStr(strokes2)}" if $debug
+  _handle_tsu(strokes1, strokes2)
+  STDERR.puts "calcCost: _handle_tsu: #{_makeStrokeListStr(strokes1)}, #{_makeStrokeListStr(strokes2)}" if $debug
   cost = ERROR_COST
-  if strokes1.size == 1 && strokes2.size == 1
+  if !$multiStroke && strokes1.size == 1 && strokes2.size == 1
     # 単打の連続
     head1 = strokes1[0] % 100
     head2 = strokes2[0] % 100
@@ -349,8 +505,8 @@ def calcCost(strokes1, strokes2)
       cost = $time_table[head1][head2]
       if $combo_map[makeComboKey([head1, head2])]
         # 連続する単打が同時打鍵の組み合わせでもある場合
-        STDERR.puts "calcCost: add DECOMBO_COST: #{DECOMBO_COST}; oldCost=#{cost}, " if $debug
-        cost += DECOMBO_COST
+        STDERR.puts "calcCost: add PREVENT_COMBO_COST: #{$preventComboCost.round(2)}; oldCost=#{cost.round(2)}, " if $debug
+        cost += $preventComboCost
       end
     end
   elsif _isSameCombo(strokes1, strokes2)
@@ -358,7 +514,7 @@ def calcCost(strokes1, strokes2)
     cost = $time_table[strokes1[-1]][strokes2[-1]]
     STDERR.puts "calcCost: Same Combo: cost=#{cost.round(2)}" if $debug
   else
-    # どちらかが同時打鍵
+    # どちらかが同時打鍵or多ストローク
     cost = calcMultiStrokeCost(strokes1, strokes2)
   end
   STDERR.puts "calcCost: LEAVE: cost=#{cost.round(2)}" if $debug
@@ -373,14 +529,17 @@ def calcListCost(strokesList1, strokesList2)
       cost = calcCost(x, y)
       if cost < minCost
         minCost = cost
-        STDERR.puts "calcListCost: new minCost=#{minCost}" if $debug
+        STDERR.puts "calcListCost: new minCost=#{minCost.round(2)}" if $debug
       end
     }
   }
-  STDERR.puts "calcListCost: LEAVE: minCost=#{minCost}" if $debug
+  STDERR.puts "calcListCost: LEAVE: minCost=#{minCost.round(2)}" if $debug
   minCost
 end
 
+#-------------------------------------------------------------------
+# 2モーラ表の読み込みとコスト計算
+#-------------------------------------------------------------------
 STDERR.puts "\n---- START Cost Calc: #{MoraFile} ----" if $debug || $milestoneDebug
 
 $moraCount = 0
@@ -420,10 +579,12 @@ File.readlines(MoraFile).each do |line|
     mora2 = word[1..-1]
   end
 
+  STDERR.puts "mora1=#{mora1}, mora2=#{mora2}" if $debug
+
   cost = ERROR_COST
-  strokesList1 = $stroke_list_map[mora1].dup
-  strokesList2 = $stroke_list_map[mora2].dup
-  if strokesList1 && strokesList2
+  strokesList1 = $stroke_list_map[mora1] ? $stroke_list_map[mora1].map{|list| list.dup} : []
+  strokesList2 = $stroke_list_map[mora2] ? $stroke_list_map[mora2].map{|list| list.dup} : []
+  if strokesList1.size > 0 && strokesList2.size > 0
     # どちらのモーラも打鍵表にある
     cost = calcListCost(strokesList1, strokesList2)
     if cost >= ERROR_COST
@@ -432,20 +593,43 @@ File.readlines(MoraFile).each do |line|
   end
   if cost >= ERROR_COST
     STDERR.puts "calc for each grams: #{word}: #{count}" if $debug
-    for i in 0...word.length-1
-      strokesList1 = $stroke_list_map[word[i]]
-      strokesList2 = $stroke_list_map[word[i+1]]
-      if strokesList1 && strokesList2
-        cost = calcListCost(strokesList1, strokesList2)
+    cost = 0.0
+    strokesLists = []
+    if strokesList1.size == 0
+      strokesList1 = $stroke_list_map[mora1[-1]] ? $stroke_list_map[mora1[-1]].map{|list| list.dup} : []
+    end
+    if strokesList1.size == 0
+      cost = MAX_CONNECTION_COST
+      STDERR.puts "no stroke for #{mora1[-1]}"
+    else
+      strokesLists.push(strokesList1)
+      if strokesList2.size > 0
+        strokesLists.push(strokesList2)
+      else
+        for i in 0...mora2.size
+          strokesList2 = $stroke_list_map[mora2[i]] ? $stroke_list_map[mora2[i]].map{|list| list.dup} : []
+          if strokesList2.size == 0
+            cost = MAX_CONNECTION_COST
+            STDERR.puts "no stroke for #{mora2[i]}"
+            break
+          else
+            strokesLists.push(strokesList2)
+          end
+        end
+      end
+    end
+    if cost == 0.0
+      for i in 0...strokesLists.length-1
+        strokesList1 = strokesLists[i]
+        strokesList2 = strokesLists[i+1]
+        cost += calcListCost(strokesList1, strokesList2)
         if cost >= ERROR_COST
           cost = MAX_CONNECTION_COST
+          break
         end
-      else
-        STDERR.puts "no stroke for #{strokesList1 ? word[i+1] : word[i]}(#{i})"
-        cost = MAX_CONNECTION_COST
-      end
-      STDERR.puts "cost = #{cost.round(2)}" if $debug
-    end 
+        STDERR.puts "cost = #{cost.round(2)}" if $debug
+      end 
+    end
   end
   score = cost * count
   total_score += score

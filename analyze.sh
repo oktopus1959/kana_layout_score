@@ -1,6 +1,7 @@
 #! /bin/bash
 
-ruby analyze_bimora_time.rb tables/naginata.tbl.txt 2> debug_naginata.log
-ruby analyze_bimora_time.rb tables/singet.tbl.txt 2> debug_singeta.log
-ruby analyze_bimora_time.rb tables/noniiruto.tbl.txt 2> debug_noniiruto.log
+for LAYOUT in naginata singet noniiruto nicola roman phoenix_rt tuki-2-263 gekkou-20211106; do
+    echo "---- $LAYOUT ----"
+    ruby analyze_bimora_time.rb tables/$LAYOUT.tbl.txt 2> debug_$LAYOUT.log
+done
 
