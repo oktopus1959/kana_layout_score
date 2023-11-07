@@ -1,18 +1,18 @@
 #! /usr/bin/env ruby
 
 $debug = true
-$milestoneDebug = false
+$milestoneDebug = ENV['DEBUG'] ? false : true
 $timeTableDump = false
 $strokeTableDump = false
 
 TimeTableFile = 'oooka/oooka_time_table.txt'
 
-MoraFile = 'kouy/kouy_2mora.txt'
+MoraFile = ENV['MORA_FILE'] ? ENV['MORA_FILE'] : 'kouy/kouy_2mora.txt'
 #MoraFile = 'oka/mixed_hiragana.2mora.txt'
 #MoraFile = 'oooka/fusinotani.2mora.txt'
 
 # 左手に対する時間補正
-$doLeftHandAdjust = ENV['ADJUST_TIME_TABLE'] == 'false' ? false : true
+$doLeftHandAdjust = ENV['ORIGINAL_TIME_TABLE'] ||  ENV['ADJUST_TIME_TABLE'] == 'false' ? false : true
 LEFTHAND_FIRST_ADJUST_FACTOR = 0.93
 LEFTHAND_SECOND_ADJUST_FACTOR = 0.85
 
@@ -32,21 +32,21 @@ ONESHOT_OFFSET = 800    # ワンショット
 FPLR_OFFSET = 900       # 先押し後離し
 
 # ペナルティコストの既定値
-$decomboShiftCost = 1.0   # 同時打鍵から単打への移行コスト
-$preventComboCost = 2.0   # 単打２連接が同時打鍵と重複している場合に、単打2連接として判定させるためのコスト
-$comboShiftCost = 2.0     # 第2モーラが２キー同時打鍵の場合のコスト
+$decomboShiftCost = 2.0   # 同時打鍵から単打への移行コスト
+$preventComboCost = 2.5   # 単打２連接が同時打鍵と重複している場合に、単打2連接として判定させるためのコスト
+$comboShiftCost = 3.0     # 第2モーラが２キー同時打鍵の場合のコスト
 $sandsComboCost = 3.0     # 第2モーラがSandS同時打鍵の場合のコスト
-$sandsDecomboCost = 3.0   # SandS同時打鍵から単打への移行コスト
-$fprtComboCost = 4.0      # 第2モーラが先押し後離し打鍵の場合のコスト
-$tripleComboCost = 5.0    # 第2モーラが２キー同時打鍵の場合のコスト
+$sandsDecomboCost = 2.0   # SandS同時打鍵から単打への移行コスト
+$fprtComboCost = 10.0      # 第2モーラが先押し後離し打鍵の場合のコスト
+$tripleComboCost = 4.0    # 第2モーラが２キー同時打鍵の場合のコスト
 
 # ペナルティコストの計算に平均連接運指コストに対する係数を使う
-$useCostRate = true
+$useCostRate = ENV['FIXED_COST'] ? false : true
 DECOMBO_SHIFT_COST_RATE = 0.2
 PREVENT_COMBO_COST_RATE = 0.4
 COMBO_SHIFT_COST_RATE = 0.4
 SANDS_COMBO_COST_RATE = 0.4
-SANDS_DECOMBO_COST_RATE = 0.4
+SANDS_DECOMBO_COST_RATE = 0.3
 FPLR_COMBO_COST_RATE = 1.0
 TRIPLE_COMBO_COST_RATE = 0.5
 
@@ -104,8 +104,8 @@ end
 #  STDERR.puts items.map{|x| x.round(2).to_s}.join("\t")
 #}
 
+meanFingeringCost = time_table_31x31.map{|list| list.sum}.sum / time_table_31x31.map{|list| list.size}.sum
 if $useCostRate
-  meanFingeringCost = time_table_31x31.map{|list| list.sum}.sum / time_table_31x31.map{|list| list.size}.sum
   $decomboShiftCost = meanFingeringCost * DECOMBO_SHIFT_COST_RATE
   $preventComboCost = meanFingeringCost * PREVENT_COMBO_COST_RATE
   $comboShiftCost = meanFingeringCost * COMBO_SHIFT_COST_RATE
@@ -113,17 +113,17 @@ if $useCostRate
   $sandsDecomboCost = meanFingeringCost * SANDS_DECOMBO_COST_RATE
   $fprtComboCost = meanFingeringCost * FPLR_COMBO_COST_RATE
   $tripleComboCost = meanFingeringCost * TRIPLE_COMBO_COST_RATE
+end
 
-  if $debug && !$timeTableDump
-    STDERR.puts "meanFingeringCost=#{meanFingeringCost.round(2)}"
-    STDERR.puts "decomboShiftCost=#{$decomboShiftCost.round(2)}"
-    STDERR.puts "preventComboCost=#{$preventComboCost.round(2)}"
-    STDERR.puts "comboShiftCost=#{$comboShiftCost.round(2)}"
-    STDERR.puts "sandsComboCost=#{$sandsComboCost.round(2)}"
-    STDERR.puts "sandsDecomboCost=#{$sandsDecomboCost.round(2)}"
-    STDERR.puts "fprtComboCost=#{$fprtComboCost.round(2)}"
-    STDERR.puts "tripleComboCost=#{$tripleComboCost.round(2)}"
-  end
+if $debug && !$timeTableDump
+  STDERR.puts "meanFingeringCost=#{meanFingeringCost.round(2)}"
+  STDERR.puts "decomboShiftCost=#{$decomboShiftCost.round(2)}"
+  STDERR.puts "preventComboCost=#{$preventComboCost.round(2)}"
+  STDERR.puts "comboShiftCost=#{$comboShiftCost.round(2)}"
+  STDERR.puts "sandsComboCost=#{$sandsComboCost.round(2)}"
+  STDERR.puts "sandsDecomboCost=#{$sandsDecomboCost.round(2)}"
+  STDERR.puts "fprtComboCost=#{$fprtComboCost.round(2)}"
+  STDERR.puts "tripleComboCost=#{$tripleComboCost.round(2)}"
 end
 
 # Spaceキーに対応する部分を外挿
@@ -481,7 +481,7 @@ def _isSameCombo(combo1, combo2)
   return true
 end
 
-def _handle_tsu(strokes1, strokes2)
+def _handle_tsu_nu(strokes1, strokes2)
     if strokes2[0] == 99
       # 後が「っ」なら、T にする (「った」「って」「っと」で 58%を占めるため
       strokes2[0] = 14  # T
@@ -490,12 +490,23 @@ def _handle_tsu(strokes1, strokes2)
       # 前が「っ」なら、後の先頭ストロークを重ねる
       strokes1[0] = strokes2[0]
     end
+    if strokes1[-1] == 98 && (strokes2[0] == 35 || strokes2[0] == 98)
+      # 前が「ん」で終わり、後が「ん」or「N」で始まるなら、後の先頭に「N」を挿入
+      strokes1[-1] = 35  # N
+      strokes2.insert(0, 35) # N
+    end
+    if strokes1[-1] == 98
+      strokes1[-1] = 35  # N
+    end
+    if strokes2[0] == 98
+      strokes2[0] = 35  # N
+    end
 end
 
 def calcCost(strokes1, strokes2)
   STDERR.puts "calcCost: ENTER: #{_makeStrokeListStr(strokes1)}, #{_makeStrokeListStr(strokes2)}" if $debug
-  _handle_tsu(strokes1, strokes2)
-  STDERR.puts "calcCost: _handle_tsu: #{_makeStrokeListStr(strokes1)}, #{_makeStrokeListStr(strokes2)}" if $debug
+  _handle_tsu_nu(strokes1, strokes2)
+  STDERR.puts "calcCost: _handle_tsu_nu: #{_makeStrokeListStr(strokes1)}, #{_makeStrokeListStr(strokes2)}" if $debug
   cost = ERROR_COST
   if !$multiStroke && strokes1.size == 1 && strokes2.size == 1
     # 単打の連続
@@ -579,7 +590,7 @@ File.readlines(MoraFile).each do |line|
     mora2 = word[1..-1]
   end
 
-  STDERR.puts "mora1=#{mora1}, mora2=#{mora2}" if $debug
+  STDERR.puts "main: mora1=#{mora1}, mora2=#{mora2}" if $debug
 
   cost = ERROR_COST
   strokesList1 = $stroke_list_map[mora1] ? $stroke_list_map[mora1].map{|list| list.dup} : []
@@ -588,11 +599,11 @@ File.readlines(MoraFile).each do |line|
     # どちらのモーラも打鍵表にある
     cost = calcListCost(strokesList1, strokesList2)
     if cost >= ERROR_COST
-      STDERR.puts "can't calc cost: #{mora1}, #{mora2}"
+      STDERR.puts "main: can't calc cost: #{mora1}, #{mora2}"
     end
   end
   if cost >= ERROR_COST
-    STDERR.puts "calc for each grams: #{word}: #{count}" if $debug
+    STDERR.puts "main: calc for each grams: #{word}: #{count}" if $debug
     cost = 0.0
     strokesLists = []
     if strokesList1.size == 0
@@ -600,7 +611,7 @@ File.readlines(MoraFile).each do |line|
     end
     if strokesList1.size == 0
       cost = MAX_CONNECTION_COST
-      STDERR.puts "no stroke for #{mora1[-1]}"
+      STDERR.puts "main: no stroke for #{mora1[-1]}"
     else
       strokesLists.push(strokesList1)
       if strokesList2.size > 0
@@ -610,7 +621,7 @@ File.readlines(MoraFile).each do |line|
           strokesList2 = $stroke_list_map[mora2[i]] ? $stroke_list_map[mora2[i]].map{|list| list.dup} : []
           if strokesList2.size == 0
             cost = MAX_CONNECTION_COST
-            STDERR.puts "no stroke for #{mora2[i]}"
+            STDERR.puts "main: no stroke for #{mora2[i]}"
             break
           else
             strokesLists.push(strokesList2)
@@ -627,7 +638,7 @@ File.readlines(MoraFile).each do |line|
           cost = MAX_CONNECTION_COST
           break
         end
-        STDERR.puts "cost = #{cost.round(2)}" if $debug
+        STDERR.puts "main: #{i+1}: accum gram cost = #{cost.round(2)}" if $debug
       end 
     end
   end

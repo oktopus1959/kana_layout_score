@@ -1,0 +1,1167 @@
+KSK_FACTOR=1.0
+meanFingeringCost=5.44
+decomboShiftCost=1.09
+preventComboCost=2.18
+comboShiftCost=2.18
+sandsComboCost=2.18
+sandsDecomboCost=1.63
+fprtComboCost=5.44
+tripleComboCost=2.72
+
+---- multiStroke ----
+
+---- START Cost Calc: kouy/kouy_2mora.txt ----
+----
+1: word=てい, count=7484, total_count=7484
+main: mora1=て, mora2=い
+calcListCost: ENTER
+calcCost: ENTER: 824:29, 822:26
+calcCost: _handle_tsu_nu: 824:29, 822:26
+calcMultiStrokeCost: ENTER: 824:29 (OneShot), 822:26 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(824, 822)=4.92
+_maxCost: x=824, y=822, oldCost=0.0: resultCost=4.92
+_interStrokeCost(824, 26)=4.0
+_maxCost: x=824, y=26, oldCost=4.92: resultCost=4.92
+_interStrokeCost(29, 822)=5.36
+_maxCost: x=29, y=822, oldCost=4.92: resultCost=5.36
+_interStrokeCost(29, 26)=6.37
+_maxCost: x=29, y=26, oldCost=5.36: resultCost=6.37
+maxCost: 824:29, 822:26, : cost=6.37
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=8.55
+calcCost: LEAVE: cost=8.55
+calcListCost: new minCost=8.55
+calcCost: ENTER: 824:29, 826:22
+calcCost: _handle_tsu_nu: 824:29, 826:22
+calcMultiStrokeCost: ENTER: 824:29 (OneShot), 826:22 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(824, 826)=4.0
+_maxCost: x=824, y=826, oldCost=0.0: resultCost=4.0
+_interStrokeCost(824, 22)=4.92
+_maxCost: x=824, y=22, oldCost=4.0: resultCost=4.92
+_interStrokeCost(29, 826)=6.37
+_maxCost: x=29, y=826, oldCost=4.92: resultCost=6.37
+_interStrokeCost(29, 22)=5.36
+_maxCost: x=29, y=22, oldCost=6.37: resultCost=6.37
+maxCost: 824:29, 826:22, : cost=6.37
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=8.55
+calcCost: LEAVE: cost=8.55
+calcCost: ENTER: 829:24, 822:26
+calcCost: _handle_tsu_nu: 829:24, 822:26
+calcMultiStrokeCost: ENTER: 829:24 (OneShot), 822:26 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(829, 822)=5.36
+_maxCost: x=829, y=822, oldCost=0.0: resultCost=5.36
+_interStrokeCost(829, 26)=6.37
+_maxCost: x=829, y=26, oldCost=5.36: resultCost=6.37
+_interStrokeCost(24, 822)=4.92
+_maxCost: x=24, y=822, oldCost=6.37: resultCost=6.37
+_interStrokeCost(24, 26)=4.0
+_maxCost: x=24, y=26, oldCost=6.37: resultCost=6.37
+maxCost: 829:24, 822:26, : cost=6.37
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=8.55
+calcCost: LEAVE: cost=8.55
+calcCost: ENTER: 829:24, 826:22
+calcCost: _handle_tsu_nu: 829:24, 826:22
+calcMultiStrokeCost: ENTER: 829:24 (OneShot), 826:22 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(829, 826)=6.37
+_maxCost: x=829, y=826, oldCost=0.0: resultCost=6.37
+_interStrokeCost(829, 22)=5.36
+_maxCost: x=829, y=22, oldCost=6.37: resultCost=6.37
+_interStrokeCost(24, 826)=4.0
+_maxCost: x=24, y=826, oldCost=6.37: resultCost=6.37
+_interStrokeCost(24, 22)=4.92
+_maxCost: x=24, y=22, oldCost=6.37: resultCost=6.37
+maxCost: 829:24, 826:22, : cost=6.37
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=8.55
+calcCost: LEAVE: cost=8.55
+calcListCost: LEAVE: minCost=8.55
+1: cost=8.55, score=63961.22, total_score=63961.22
+----
+10: word=うし, count=5059, total_count=56458
+main: mora1=う, mora2=し
+calcListCost: ENTER
+calcCost: ENTER: 822:25, 820:26
+calcCost: _handle_tsu_nu: 822:25, 820:26
+calcMultiStrokeCost: ENTER: 822:25 (OneShot), 820:26 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(822, 820)=6.43
+_maxCost: x=822, y=820, oldCost=0.0: resultCost=6.43
+_interStrokeCost(822, 26)=4.16
+_maxCost: x=822, y=26, oldCost=6.43: resultCost=6.43
+_interStrokeCost(25, 820)=4.79
+_maxCost: x=25, y=820, oldCost=6.43: resultCost=6.43
+_interStrokeCost(25, 26)=5.73
+_maxCost: x=25, y=26, oldCost=6.43: resultCost=6.43
+maxCost: 822:25, 820:26, : cost=6.43
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=8.6
+calcCost: LEAVE: cost=8.6
+calcListCost: new minCost=8.6
+calcCost: ENTER: 822:25, 826:20
+calcCost: _handle_tsu_nu: 822:25, 826:20
+calcMultiStrokeCost: ENTER: 822:25 (OneShot), 826:20 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(822, 826)=4.16
+_maxCost: x=822, y=826, oldCost=0.0: resultCost=4.16
+_interStrokeCost(822, 20)=6.43
+_maxCost: x=822, y=20, oldCost=4.16: resultCost=6.43
+_interStrokeCost(25, 826)=5.73
+_maxCost: x=25, y=826, oldCost=6.43: resultCost=6.43
+_interStrokeCost(25, 20)=4.79
+_maxCost: x=25, y=20, oldCost=6.43: resultCost=6.43
+maxCost: 822:25, 826:20, : cost=6.43
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=8.6
+calcCost: LEAVE: cost=8.6
+calcCost: ENTER: 825:22, 820:26
+calcCost: _handle_tsu_nu: 825:22, 820:26
+calcMultiStrokeCost: ENTER: 825:22 (OneShot), 820:26 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(825, 820)=4.79
+_maxCost: x=825, y=820, oldCost=0.0: resultCost=4.79
+_interStrokeCost(825, 26)=5.73
+_maxCost: x=825, y=26, oldCost=4.79: resultCost=5.73
+_interStrokeCost(22, 820)=6.43
+_maxCost: x=22, y=820, oldCost=5.73: resultCost=6.43
+_interStrokeCost(22, 26)=4.16
+_maxCost: x=22, y=26, oldCost=6.43: resultCost=6.43
+maxCost: 825:22, 820:26, : cost=6.43
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=8.6
+calcCost: LEAVE: cost=8.6
+calcCost: ENTER: 825:22, 826:20
+calcCost: _handle_tsu_nu: 825:22, 826:20
+calcMultiStrokeCost: ENTER: 825:22 (OneShot), 826:20 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(825, 826)=5.73
+_maxCost: x=825, y=826, oldCost=0.0: resultCost=5.73
+_interStrokeCost(825, 20)=4.79
+_maxCost: x=825, y=20, oldCost=5.73: resultCost=5.73
+_interStrokeCost(22, 826)=4.16
+_maxCost: x=22, y=826, oldCost=5.73: resultCost=5.73
+_interStrokeCost(22, 20)=6.43
+_maxCost: x=22, y=20, oldCost=5.73: resultCost=6.43
+maxCost: 825:22, 826:20, : cost=6.43
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=8.6
+calcCost: LEAVE: cost=8.6
+calcListCost: LEAVE: minCost=8.6
+10: cost=8.6, score=43523.39, total_score=467501.16
+----
+100: word=いき, count=1841, total_count=301211
+main: mora1=い, mora2=き
+calcListCost: ENTER
+calcCost: ENTER: 822:26, 823:26
+calcCost: _handle_tsu_nu: 822:26, 823:26
+_xchgShift: ENTER: combo=823:26
+_xchgShift: LEAVE: combo=826:23
+_xchgShift: ENTER: combo=822:26
+_xchgShift: LEAVE: combo=826:22
+calcMultiStrokeCost: ENTER: 826:22 (OneShot), 826:23 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(826, 826)=5.47
+_maxCost: x=826, y=826, oldCost=0.0: resultCost=5.47
+_interStrokeCost(826, 23)=5.07
+_maxCost: x=826, y=23, oldCost=5.47: resultCost=5.47
+_interStrokeCost(22, 826)=4.16
+_maxCost: x=22, y=826, oldCost=5.47: resultCost=5.47
+_interStrokeCost(22, 23)=5.45
+_maxCost: x=22, y=23, oldCost=5.47: resultCost=5.47
+maxCost: 826:22, 826:23, : cost=5.47
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=7.65
+calcCost: LEAVE: cost=7.65
+calcListCost: new minCost=7.65
+calcCost: ENTER: 826:22, 826:23
+calcCost: _handle_tsu_nu: 826:22, 826:23
+calcMultiStrokeCost: ENTER: 826:22 (OneShot), 826:23 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(826, 826)=5.47
+_maxCost: x=826, y=826, oldCost=0.0: resultCost=5.47
+_interStrokeCost(826, 23)=5.07
+_maxCost: x=826, y=23, oldCost=5.47: resultCost=5.47
+_interStrokeCost(22, 826)=4.16
+_maxCost: x=22, y=826, oldCost=5.47: resultCost=5.47
+_interStrokeCost(22, 23)=5.45
+_maxCost: x=22, y=23, oldCost=5.47: resultCost=5.47
+maxCost: 826:22, 826:23, : cost=5.47
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=7.65
+calcCost: LEAVE: cost=7.65
+calcCost: ENTER: 826:22, 826:23
+calcCost: _handle_tsu_nu: 826:22, 826:23
+calcMultiStrokeCost: ENTER: 826:22 (OneShot), 826:23 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(826, 826)=5.47
+_maxCost: x=826, y=826, oldCost=0.0: resultCost=5.47
+_interStrokeCost(826, 23)=5.07
+_maxCost: x=826, y=23, oldCost=5.47: resultCost=5.47
+_interStrokeCost(22, 826)=4.16
+_maxCost: x=22, y=826, oldCost=5.47: resultCost=5.47
+_interStrokeCost(22, 23)=5.45
+_maxCost: x=22, y=23, oldCost=5.47: resultCost=5.47
+maxCost: 826:22, 826:23, : cost=5.47
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=7.65
+calcCost: LEAVE: cost=7.65
+calcCost: ENTER: 826:22, 826:23
+calcCost: _handle_tsu_nu: 826:22, 826:23
+calcMultiStrokeCost: ENTER: 826:22 (OneShot), 826:23 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(826, 826)=5.47
+_maxCost: x=826, y=826, oldCost=0.0: resultCost=5.47
+_interStrokeCost(826, 23)=5.07
+_maxCost: x=826, y=23, oldCost=5.47: resultCost=5.47
+_interStrokeCost(22, 826)=4.16
+_maxCost: x=22, y=826, oldCost=5.47: resultCost=5.47
+_interStrokeCost(22, 23)=5.45
+_maxCost: x=22, y=23, oldCost=5.47: resultCost=5.47
+maxCost: 826:22, 826:23, : cost=5.47
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=7.65
+calcCost: LEAVE: cost=7.65
+calcListCost: LEAVE: minCost=7.65
+100: cost=7.65, score=14077.01, total_score=2531723.26
+----
+500: word=りー, count=587, total_count=700553
+main: mora1=り, mora2=ー
+calcListCost: ENTER
+calcCost: ENTER: 812:26, 816:21
+calcCost: _handle_tsu_nu: 812:26, 816:21
+calcMultiStrokeCost: ENTER: 812:26 (OneShot), 816:21 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(812, 816)=4.06
+_maxCost: x=812, y=816, oldCost=0.0: resultCost=4.06
+_interStrokeCost(812, 21)=6.03
+_maxCost: x=812, y=21, oldCost=4.06: resultCost=6.03
+_interStrokeCost(26, 816)=6.33
+_maxCost: x=26, y=816, oldCost=6.03: resultCost=6.33
+_interStrokeCost(26, 21)=5.19
+_maxCost: x=26, y=21, oldCost=6.33: resultCost=6.33
+maxCost: 812:26, 816:21, : cost=6.33
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=8.51
+calcCost: LEAVE: cost=8.51
+calcListCost: new minCost=8.51
+calcCost: ENTER: 812:26, 821:16
+calcCost: _handle_tsu_nu: 812:26, 821:16
+calcMultiStrokeCost: ENTER: 812:26 (OneShot), 821:16 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(812, 821)=6.03
+_maxCost: x=812, y=821, oldCost=0.0: resultCost=6.03
+_interStrokeCost(812, 16)=4.06
+_maxCost: x=812, y=16, oldCost=6.03: resultCost=6.03
+_interStrokeCost(26, 821)=5.19
+_maxCost: x=26, y=821, oldCost=6.03: resultCost=6.03
+_interStrokeCost(26, 16)=6.33
+_maxCost: x=26, y=16, oldCost=6.03: resultCost=6.33
+maxCost: 812:26, 821:16, : cost=6.33
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=8.51
+calcCost: LEAVE: cost=8.51
+calcCost: ENTER: 826:12, 816:21
+calcCost: _handle_tsu_nu: 826:12, 816:21
+calcMultiStrokeCost: ENTER: 826:12 (OneShot), 816:21 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(826, 816)=6.33
+_maxCost: x=826, y=816, oldCost=0.0: resultCost=6.33
+_interStrokeCost(826, 21)=5.19
+_maxCost: x=826, y=21, oldCost=6.33: resultCost=6.33
+_interStrokeCost(12, 816)=4.06
+_maxCost: x=12, y=816, oldCost=6.33: resultCost=6.33
+_interStrokeCost(12, 21)=6.03
+_maxCost: x=12, y=21, oldCost=6.33: resultCost=6.33
+maxCost: 826:12, 816:21, : cost=6.33
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=8.51
+calcCost: LEAVE: cost=8.51
+calcCost: ENTER: 826:12, 821:16
+calcCost: _handle_tsu_nu: 826:12, 821:16
+calcMultiStrokeCost: ENTER: 826:12 (OneShot), 821:16 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(826, 821)=5.19
+_maxCost: x=826, y=821, oldCost=0.0: resultCost=5.19
+_interStrokeCost(826, 16)=6.33
+_maxCost: x=826, y=16, oldCost=5.19: resultCost=6.33
+_interStrokeCost(12, 821)=6.03
+_maxCost: x=12, y=821, oldCost=6.33: resultCost=6.33
+_interStrokeCost(12, 16)=4.06
+_maxCost: x=12, y=16, oldCost=6.33: resultCost=6.33
+maxCost: 826:12, 821:16, : cost=6.33
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=8.51
+calcCost: LEAVE: cost=8.51
+calcListCost: LEAVE: minCost=8.51
+500: cost=8.51, score=4993.25, total_score=5852844.36
+----
+1000: word=いめ, count=281, total_count=900384
+main: mora1=い, mora2=め
+calcListCost: ENTER
+calcCost: ENTER: 822:26, 814:29
+calcCost: _handle_tsu_nu: 822:26, 814:29
+calcMultiStrokeCost: ENTER: 822:26 (OneShot), 814:29 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(822, 814)=6.09
+_maxCost: x=822, y=814, oldCost=0.0: resultCost=6.09
+_interStrokeCost(822, 29)=4.25
+_maxCost: x=822, y=29, oldCost=6.09: resultCost=6.09
+_interStrokeCost(26, 814)=5.61
+_maxCost: x=26, y=814, oldCost=6.09: resultCost=6.09
+_interStrokeCost(26, 29)=4.37
+_maxCost: x=26, y=29, oldCost=6.09: resultCost=6.09
+maxCost: 822:26, 814:29, : cost=6.09
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=8.26
+calcCost: LEAVE: cost=8.26
+calcListCost: new minCost=8.26
+calcCost: ENTER: 822:26, 829:14
+calcCost: _handle_tsu_nu: 822:26, 829:14
+calcMultiStrokeCost: ENTER: 822:26 (OneShot), 829:14 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(822, 829)=4.25
+_maxCost: x=822, y=829, oldCost=0.0: resultCost=4.25
+_interStrokeCost(822, 14)=6.09
+_maxCost: x=822, y=14, oldCost=4.25: resultCost=6.09
+_interStrokeCost(26, 829)=4.37
+_maxCost: x=26, y=829, oldCost=6.09: resultCost=6.09
+_interStrokeCost(26, 14)=5.61
+_maxCost: x=26, y=14, oldCost=6.09: resultCost=6.09
+maxCost: 822:26, 829:14, : cost=6.09
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=8.26
+calcCost: LEAVE: cost=8.26
+calcCost: ENTER: 826:22, 814:29
+calcCost: _handle_tsu_nu: 826:22, 814:29
+calcMultiStrokeCost: ENTER: 826:22 (OneShot), 814:29 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(826, 814)=5.61
+_maxCost: x=826, y=814, oldCost=0.0: resultCost=5.61
+_interStrokeCost(826, 29)=4.37
+_maxCost: x=826, y=29, oldCost=5.61: resultCost=5.61
+_interStrokeCost(22, 814)=6.09
+_maxCost: x=22, y=814, oldCost=5.61: resultCost=6.09
+_interStrokeCost(22, 29)=4.25
+_maxCost: x=22, y=29, oldCost=6.09: resultCost=6.09
+maxCost: 826:22, 814:29, : cost=6.09
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=8.26
+calcCost: LEAVE: cost=8.26
+calcCost: ENTER: 826:22, 829:14
+calcCost: _handle_tsu_nu: 826:22, 829:14
+calcMultiStrokeCost: ENTER: 826:22 (OneShot), 829:14 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(826, 829)=4.37
+_maxCost: x=826, y=829, oldCost=0.0: resultCost=4.37
+_interStrokeCost(826, 14)=5.61
+_maxCost: x=826, y=14, oldCost=4.37: resultCost=5.61
+_interStrokeCost(22, 829)=4.25
+_maxCost: x=22, y=829, oldCost=5.61: resultCost=5.61
+_interStrokeCost(22, 14)=6.09
+_maxCost: x=22, y=14, oldCost=5.61: resultCost=6.09
+maxCost: 826:22, 829:14, : cost=6.09
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=8.26
+calcCost: LEAVE: cost=8.26
+calcListCost: LEAVE: minCost=8.26
+1000: cost=8.26, score=2321.97, total_score=7605820.77
+----
+1500: word=めし, count=167, total_count=1009624
+main: mora1=め, mora2=し
+calcListCost: ENTER
+calcCost: ENTER: 814:29, 820:26
+calcCost: _handle_tsu_nu: 814:29, 820:26
+calcMultiStrokeCost: ENTER: 814:29 (OneShot), 820:26 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(814, 820)=5.3
+_maxCost: x=814, y=820, oldCost=0.0: resultCost=5.3
+_interStrokeCost(814, 26)=4.72
+_maxCost: x=814, y=26, oldCost=5.3: resultCost=5.3
+_interStrokeCost(29, 820)=5.19
+_maxCost: x=29, y=820, oldCost=5.3: resultCost=5.3
+_interStrokeCost(29, 26)=6.37
+_maxCost: x=29, y=26, oldCost=5.3: resultCost=6.37
+maxCost: 814:29, 820:26, : cost=6.37
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=8.55
+calcCost: LEAVE: cost=8.55
+calcListCost: new minCost=8.55
+calcCost: ENTER: 814:29, 826:20
+calcCost: _handle_tsu_nu: 814:29, 826:20
+calcMultiStrokeCost: ENTER: 814:29 (OneShot), 826:20 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(814, 826)=4.72
+_maxCost: x=814, y=826, oldCost=0.0: resultCost=4.72
+_interStrokeCost(814, 20)=5.3
+_maxCost: x=814, y=20, oldCost=4.72: resultCost=5.3
+_interStrokeCost(29, 826)=6.37
+_maxCost: x=29, y=826, oldCost=5.3: resultCost=6.37
+_interStrokeCost(29, 20)=5.19
+_maxCost: x=29, y=20, oldCost=6.37: resultCost=6.37
+maxCost: 814:29, 826:20, : cost=6.37
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=8.55
+calcCost: LEAVE: cost=8.55
+calcCost: ENTER: 829:14, 820:26
+calcCost: _handle_tsu_nu: 829:14, 820:26
+calcMultiStrokeCost: ENTER: 829:14 (OneShot), 820:26 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(829, 820)=5.19
+_maxCost: x=829, y=820, oldCost=0.0: resultCost=5.19
+_interStrokeCost(829, 26)=6.37
+_maxCost: x=829, y=26, oldCost=5.19: resultCost=6.37
+_interStrokeCost(14, 820)=5.3
+_maxCost: x=14, y=820, oldCost=6.37: resultCost=6.37
+_interStrokeCost(14, 26)=4.72
+_maxCost: x=14, y=26, oldCost=6.37: resultCost=6.37
+maxCost: 829:14, 820:26, : cost=6.37
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=8.55
+calcCost: LEAVE: cost=8.55
+calcCost: ENTER: 829:14, 826:20
+calcCost: _handle_tsu_nu: 829:14, 826:20
+calcMultiStrokeCost: ENTER: 829:14 (OneShot), 826:20 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(829, 826)=6.37
+_maxCost: x=829, y=826, oldCost=0.0: resultCost=6.37
+_interStrokeCost(829, 20)=5.19
+_maxCost: x=829, y=20, oldCost=6.37: resultCost=6.37
+_interStrokeCost(14, 826)=4.72
+_maxCost: x=14, y=826, oldCost=6.37: resultCost=6.37
+_interStrokeCost(14, 20)=5.3
+_maxCost: x=14, y=20, oldCost=6.37: resultCost=6.37
+maxCost: 829:14, 826:20, : cost=6.37
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=8.55
+calcCost: LEAVE: cost=8.55
+calcListCost: LEAVE: minCost=8.55
+1500: cost=8.55, score=1427.25, total_score=8551336.9
+----
+2000: word=ちあ, count=103, total_count=1076164
+main: mora1=ち, mora2=あ
+calcListCost: ENTER
+calcCost: ENTER: 824:26, 822:27
+calcCost: _handle_tsu_nu: 824:26, 822:27
+calcMultiStrokeCost: ENTER: 824:26 (OneShot), 822:27 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(824, 822)=4.92
+_maxCost: x=824, y=822, oldCost=0.0: resultCost=4.92
+_interStrokeCost(824, 27)=4.28
+_maxCost: x=824, y=27, oldCost=4.92: resultCost=4.92
+_interStrokeCost(26, 822)=4.9
+_maxCost: x=26, y=822, oldCost=4.92: resultCost=4.92
+_interStrokeCost(26, 27)=3.43
+_maxCost: x=26, y=27, oldCost=4.92: resultCost=4.92
+maxCost: 824:26, 822:27, : cost=4.92
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=7.1
+calcCost: LEAVE: cost=7.1
+calcListCost: new minCost=7.1
+calcCost: ENTER: 824:26, 827:22
+calcCost: _handle_tsu_nu: 824:26, 827:22
+calcMultiStrokeCost: ENTER: 824:26 (OneShot), 827:22 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(824, 827)=4.28
+_maxCost: x=824, y=827, oldCost=0.0: resultCost=4.28
+_interStrokeCost(824, 22)=4.92
+_maxCost: x=824, y=22, oldCost=4.28: resultCost=4.92
+_interStrokeCost(26, 827)=3.43
+_maxCost: x=26, y=827, oldCost=4.92: resultCost=4.92
+_interStrokeCost(26, 22)=4.9
+_maxCost: x=26, y=22, oldCost=4.92: resultCost=4.92
+maxCost: 824:26, 827:22, : cost=4.92
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=7.1
+calcCost: LEAVE: cost=7.1
+calcCost: ENTER: 826:24, 822:27
+calcCost: _handle_tsu_nu: 826:24, 822:27
+calcMultiStrokeCost: ENTER: 826:24 (OneShot), 822:27 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(826, 822)=4.9
+_maxCost: x=826, y=822, oldCost=0.0: resultCost=4.9
+_interStrokeCost(826, 27)=3.43
+_maxCost: x=826, y=27, oldCost=4.9: resultCost=4.9
+_interStrokeCost(24, 822)=4.92
+_maxCost: x=24, y=822, oldCost=4.9: resultCost=4.92
+_interStrokeCost(24, 27)=4.28
+_maxCost: x=24, y=27, oldCost=4.92: resultCost=4.92
+maxCost: 826:24, 822:27, : cost=4.92
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=7.1
+calcCost: LEAVE: cost=7.1
+calcCost: ENTER: 826:24, 827:22
+calcCost: _handle_tsu_nu: 826:24, 827:22
+calcMultiStrokeCost: ENTER: 826:24 (OneShot), 827:22 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(826, 827)=3.43
+_maxCost: x=826, y=827, oldCost=0.0: resultCost=3.43
+_interStrokeCost(826, 22)=4.9
+_maxCost: x=826, y=22, oldCost=3.43: resultCost=4.9
+_interStrokeCost(24, 827)=4.28
+_maxCost: x=24, y=827, oldCost=4.9: resultCost=4.9
+_interStrokeCost(24, 22)=4.92
+_maxCost: x=24, y=22, oldCost=4.9: resultCost=4.92
+maxCost: 826:24, 827:22, : cost=4.92
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=7.1
+calcCost: LEAVE: cost=7.1
+calcListCost: LEAVE: minCost=7.1
+2000: cost=7.1, score=731.42, total_score=9148921.09
+----
+2500: word=しぎ, count=65, total_count=1117158
+main: mora1=し, mora2=ぎ
+calcListCost: ENTER
+calcCost: ENTER: 820:26, 816:23
+calcCost: _handle_tsu_nu: 820:26, 816:23
+calcMultiStrokeCost: ENTER: 820:26 (OneShot), 816:23 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(820, 816)=5.21
+_maxCost: x=820, y=816, oldCost=0.0: resultCost=5.21
+_interStrokeCost(820, 23)=5.4
+_maxCost: x=820, y=23, oldCost=5.21: resultCost=5.4
+_interStrokeCost(26, 816)=6.33
+_maxCost: x=26, y=816, oldCost=5.4: resultCost=6.33
+_interStrokeCost(26, 23)=5.07
+_maxCost: x=26, y=23, oldCost=6.33: resultCost=6.33
+maxCost: 820:26, 816:23, : cost=6.33
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=8.51
+calcCost: LEAVE: cost=8.51
+calcListCost: new minCost=8.51
+calcCost: ENTER: 820:26, 823:16
+calcCost: _handle_tsu_nu: 820:26, 823:16
+calcMultiStrokeCost: ENTER: 820:26 (OneShot), 823:16 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(820, 823)=5.4
+_maxCost: x=820, y=823, oldCost=0.0: resultCost=5.4
+_interStrokeCost(820, 16)=5.21
+_maxCost: x=820, y=16, oldCost=5.4: resultCost=5.4
+_interStrokeCost(26, 823)=5.07
+_maxCost: x=26, y=823, oldCost=5.4: resultCost=5.4
+_interStrokeCost(26, 16)=6.33
+_maxCost: x=26, y=16, oldCost=5.4: resultCost=6.33
+maxCost: 820:26, 823:16, : cost=6.33
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=8.51
+calcCost: LEAVE: cost=8.51
+calcCost: ENTER: 826:20, 816:23
+calcCost: _handle_tsu_nu: 826:20, 816:23
+calcMultiStrokeCost: ENTER: 826:20 (OneShot), 816:23 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(826, 816)=6.33
+_maxCost: x=826, y=816, oldCost=0.0: resultCost=6.33
+_interStrokeCost(826, 23)=5.07
+_maxCost: x=826, y=23, oldCost=6.33: resultCost=6.33
+_interStrokeCost(20, 816)=5.21
+_maxCost: x=20, y=816, oldCost=6.33: resultCost=6.33
+_interStrokeCost(20, 23)=5.4
+_maxCost: x=20, y=23, oldCost=6.33: resultCost=6.33
+maxCost: 826:20, 816:23, : cost=6.33
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=8.51
+calcCost: LEAVE: cost=8.51
+calcCost: ENTER: 826:20, 823:16
+calcCost: _handle_tsu_nu: 826:20, 823:16
+calcMultiStrokeCost: ENTER: 826:20 (OneShot), 823:16 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(826, 823)=5.07
+_maxCost: x=826, y=823, oldCost=0.0: resultCost=5.07
+_interStrokeCost(826, 16)=6.33
+_maxCost: x=826, y=16, oldCost=5.07: resultCost=6.33
+_interStrokeCost(20, 823)=5.4
+_maxCost: x=20, y=823, oldCost=6.33: resultCost=6.33
+_interStrokeCost(20, 16)=5.21
+_maxCost: x=20, y=16, oldCost=6.33: resultCost=6.33
+maxCost: 826:20, 823:16, : cost=6.33
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=8.51
+calcCost: LEAVE: cost=8.51
+calcListCost: LEAVE: minCost=8.51
+2500: cost=8.51, score=552.92, total_score=9528709.99
+----
+3000: word=にれ, count=40, total_count=1142724
+main: mora1=に, mora2=れ
+calcListCost: ENTER
+calcCost: ENTER: 821:26, 812:29
+calcCost: _handle_tsu_nu: 821:26, 812:29
+calcMultiStrokeCost: ENTER: 821:26 (OneShot), 812:29 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(821, 812)=5.51
+_maxCost: x=821, y=812, oldCost=0.0: resultCost=5.51
+_interStrokeCost(821, 29)=4.93
+_maxCost: x=821, y=29, oldCost=5.51: resultCost=5.51
+_interStrokeCost(26, 812)=4.79
+_maxCost: x=26, y=812, oldCost=5.51: resultCost=5.51
+_interStrokeCost(26, 29)=4.37
+_maxCost: x=26, y=29, oldCost=5.51: resultCost=5.51
+maxCost: 821:26, 812:29, : cost=5.51
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=7.69
+calcCost: LEAVE: cost=7.69
+calcListCost: new minCost=7.69
+calcCost: ENTER: 821:26, 829:12
+calcCost: _handle_tsu_nu: 821:26, 829:12
+calcMultiStrokeCost: ENTER: 821:26 (OneShot), 829:12 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(821, 829)=4.93
+_maxCost: x=821, y=829, oldCost=0.0: resultCost=4.93
+_interStrokeCost(821, 12)=5.51
+_maxCost: x=821, y=12, oldCost=4.93: resultCost=5.51
+_interStrokeCost(26, 829)=4.37
+_maxCost: x=26, y=829, oldCost=5.51: resultCost=5.51
+_interStrokeCost(26, 12)=4.79
+_maxCost: x=26, y=12, oldCost=5.51: resultCost=5.51
+maxCost: 821:26, 829:12, : cost=5.51
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=7.69
+calcCost: LEAVE: cost=7.69
+calcCost: ENTER: 826:21, 812:29
+calcCost: _handle_tsu_nu: 826:21, 812:29
+calcMultiStrokeCost: ENTER: 826:21 (OneShot), 812:29 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(826, 812)=4.79
+_maxCost: x=826, y=812, oldCost=0.0: resultCost=4.79
+_interStrokeCost(826, 29)=4.37
+_maxCost: x=826, y=29, oldCost=4.79: resultCost=4.79
+_interStrokeCost(21, 812)=5.51
+_maxCost: x=21, y=812, oldCost=4.79: resultCost=5.51
+_interStrokeCost(21, 29)=4.93
+_maxCost: x=21, y=29, oldCost=5.51: resultCost=5.51
+maxCost: 826:21, 812:29, : cost=5.51
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=7.69
+calcCost: LEAVE: cost=7.69
+calcCost: ENTER: 826:21, 829:12
+calcCost: _handle_tsu_nu: 826:21, 829:12
+calcMultiStrokeCost: ENTER: 826:21 (OneShot), 829:12 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(826, 829)=4.37
+_maxCost: x=826, y=829, oldCost=0.0: resultCost=4.37
+_interStrokeCost(826, 12)=4.79
+_maxCost: x=826, y=12, oldCost=4.37: resultCost=4.79
+_interStrokeCost(21, 829)=4.93
+_maxCost: x=21, y=829, oldCost=4.79: resultCost=4.93
+_interStrokeCost(21, 12)=5.51
+_maxCost: x=21, y=12, oldCost=4.93: resultCost=5.51
+maxCost: 826:21, 829:12, : cost=5.51
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=7.69
+calcCost: LEAVE: cost=7.69
+calcListCost: LEAVE: minCost=7.69
+3000: cost=7.69, score=307.45, total_score=9772787.48
+----
+3500: word=ひづ, count=26, total_count=1158995
+main: mora1=ひ, mora2=づ
+calcListCost: ENTER
+calcCost: ENTER: 813:26, 815:24
+calcCost: _handle_tsu_nu: 813:26, 815:24
+calcMultiStrokeCost: ENTER: 813:26 (OneShot), 815:24 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(813, 815)=3.93
+_maxCost: x=813, y=815, oldCost=0.0: resultCost=3.93
+_interStrokeCost(813, 24)=6.48
+_maxCost: x=813, y=24, oldCost=3.93: resultCost=6.48
+_interStrokeCost(26, 815)=6.63
+_maxCost: x=26, y=815, oldCost=6.48: resultCost=6.63
+_interStrokeCost(26, 24)=4.82
+_maxCost: x=26, y=24, oldCost=6.63: resultCost=6.63
+maxCost: 813:26, 815:24, : cost=6.63
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=8.81
+calcCost: LEAVE: cost=8.81
+calcListCost: new minCost=8.81
+calcCost: ENTER: 813:26, 824:15
+calcCost: _handle_tsu_nu: 813:26, 824:15
+calcMultiStrokeCost: ENTER: 813:26 (OneShot), 824:15 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(813, 824)=6.48
+_maxCost: x=813, y=824, oldCost=0.0: resultCost=6.48
+_interStrokeCost(813, 15)=3.93
+_maxCost: x=813, y=15, oldCost=6.48: resultCost=6.48
+_interStrokeCost(26, 824)=4.82
+_maxCost: x=26, y=824, oldCost=6.48: resultCost=6.48
+_interStrokeCost(26, 15)=6.63
+_maxCost: x=26, y=15, oldCost=6.48: resultCost=6.63
+maxCost: 813:26, 824:15, : cost=6.63
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=8.81
+calcCost: LEAVE: cost=8.81
+calcCost: ENTER: 826:13, 815:24
+calcCost: _handle_tsu_nu: 826:13, 815:24
+calcMultiStrokeCost: ENTER: 826:13 (OneShot), 815:24 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(826, 815)=6.63
+_maxCost: x=826, y=815, oldCost=0.0: resultCost=6.63
+_interStrokeCost(826, 24)=4.82
+_maxCost: x=826, y=24, oldCost=6.63: resultCost=6.63
+_interStrokeCost(13, 815)=3.93
+_maxCost: x=13, y=815, oldCost=6.63: resultCost=6.63
+_interStrokeCost(13, 24)=6.48
+_maxCost: x=13, y=24, oldCost=6.63: resultCost=6.63
+maxCost: 826:13, 815:24, : cost=6.63
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=8.81
+calcCost: LEAVE: cost=8.81
+calcCost: ENTER: 826:13, 824:15
+calcCost: _handle_tsu_nu: 826:13, 824:15
+calcMultiStrokeCost: ENTER: 826:13 (OneShot), 824:15 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(826, 824)=4.82
+_maxCost: x=826, y=824, oldCost=0.0: resultCost=4.82
+_interStrokeCost(826, 15)=6.63
+_maxCost: x=826, y=15, oldCost=4.82: resultCost=6.63
+_interStrokeCost(13, 824)=6.48
+_maxCost: x=13, y=824, oldCost=6.63: resultCost=6.63
+_interStrokeCost(13, 15)=3.93
+_maxCost: x=13, y=15, oldCost=6.63: resultCost=6.63
+maxCost: 826:13, 824:15, : cost=6.63
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=8.81
+calcCost: LEAVE: cost=8.81
+calcListCost: LEAVE: minCost=8.81
+3500: cost=8.81, score=228.97, total_score=9929650.96
+----
+4000: word=けせ, count=17, total_count=1169541
+main: mora1=け, mora2=せ
+calcListCost: ENTER
+calcCost: ENTER: 823:29, 820:29
+calcCost: _handle_tsu_nu: 823:29, 820:29
+_xchgShift: ENTER: combo=820:29
+_xchgShift: LEAVE: combo=829:20
+_xchgShift: ENTER: combo=823:29
+_xchgShift: LEAVE: combo=829:23
+calcMultiStrokeCost: ENTER: 829:23 (OneShot), 829:20 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(829, 829)=6.33
+_maxCost: x=829, y=829, oldCost=0.0: resultCost=6.33
+_interStrokeCost(829, 20)=5.19
+_maxCost: x=829, y=20, oldCost=6.33: resultCost=6.33
+_interStrokeCost(23, 829)=4.68
+_maxCost: x=23, y=829, oldCost=6.33: resultCost=6.33
+_interStrokeCost(23, 20)=4.4
+_maxCost: x=23, y=20, oldCost=6.33: resultCost=6.33
+maxCost: 829:23, 829:20, : cost=6.33
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=8.51
+calcCost: LEAVE: cost=8.51
+calcListCost: new minCost=8.51
+calcCost: ENTER: 829:23, 829:20
+calcCost: _handle_tsu_nu: 829:23, 829:20
+calcMultiStrokeCost: ENTER: 829:23 (OneShot), 829:20 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(829, 829)=6.33
+_maxCost: x=829, y=829, oldCost=0.0: resultCost=6.33
+_interStrokeCost(829, 20)=5.19
+_maxCost: x=829, y=20, oldCost=6.33: resultCost=6.33
+_interStrokeCost(23, 829)=4.68
+_maxCost: x=23, y=829, oldCost=6.33: resultCost=6.33
+_interStrokeCost(23, 20)=4.4
+_maxCost: x=23, y=20, oldCost=6.33: resultCost=6.33
+maxCost: 829:23, 829:20, : cost=6.33
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=8.51
+calcCost: LEAVE: cost=8.51
+calcCost: ENTER: 829:23, 829:20
+calcCost: _handle_tsu_nu: 829:23, 829:20
+calcMultiStrokeCost: ENTER: 829:23 (OneShot), 829:20 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(829, 829)=6.33
+_maxCost: x=829, y=829, oldCost=0.0: resultCost=6.33
+_interStrokeCost(829, 20)=5.19
+_maxCost: x=829, y=20, oldCost=6.33: resultCost=6.33
+_interStrokeCost(23, 829)=4.68
+_maxCost: x=23, y=829, oldCost=6.33: resultCost=6.33
+_interStrokeCost(23, 20)=4.4
+_maxCost: x=23, y=20, oldCost=6.33: resultCost=6.33
+maxCost: 829:23, 829:20, : cost=6.33
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=8.51
+calcCost: LEAVE: cost=8.51
+calcCost: ENTER: 829:23, 829:20
+calcCost: _handle_tsu_nu: 829:23, 829:20
+calcMultiStrokeCost: ENTER: 829:23 (OneShot), 829:20 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(829, 829)=6.33
+_maxCost: x=829, y=829, oldCost=0.0: resultCost=6.33
+_interStrokeCost(829, 20)=5.19
+_maxCost: x=829, y=20, oldCost=6.33: resultCost=6.33
+_interStrokeCost(23, 829)=4.68
+_maxCost: x=23, y=829, oldCost=6.33: resultCost=6.33
+_interStrokeCost(23, 20)=4.4
+_maxCost: x=23, y=20, oldCost=6.33: resultCost=6.33
+maxCost: 829:23, 829:20, : cost=6.33
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=8.51
+calcCost: LEAVE: cost=8.51
+calcListCost: LEAVE: minCost=8.51
+4000: cost=8.51, score=144.61, total_score=10035095.88
+----
+4500: word=げよ, count=11, total_count=1176219
+main: mora1=げ, mora2=よ
+calcListCost: ENTER
+calcCost: ENTER: 819:23, 811:28
+calcCost: _handle_tsu_nu: 819:23, 811:28
+calcMultiStrokeCost: ENTER: 819:23 (OneShot), 811:28 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(819, 811)=5.78
+_maxCost: x=819, y=811, oldCost=0.0: resultCost=5.78
+_interStrokeCost(819, 28)=6.93
+_maxCost: x=819, y=28, oldCost=5.78: resultCost=6.93
+_interStrokeCost(23, 811)=4.85
+_maxCost: x=23, y=811, oldCost=6.93: resultCost=6.93
+_interStrokeCost(23, 28)=4.65
+_maxCost: x=23, y=28, oldCost=6.93: resultCost=6.93
+maxCost: 819:23, 811:28, : cost=6.93
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=9.11
+calcCost: LEAVE: cost=9.11
+calcListCost: new minCost=9.11
+calcCost: ENTER: 819:23, 828:11
+calcCost: _handle_tsu_nu: 819:23, 828:11
+calcMultiStrokeCost: ENTER: 819:23 (OneShot), 828:11 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(819, 828)=6.93
+_maxCost: x=819, y=828, oldCost=0.0: resultCost=6.93
+_interStrokeCost(819, 11)=5.78
+_maxCost: x=819, y=11, oldCost=6.93: resultCost=6.93
+_interStrokeCost(23, 828)=4.65
+_maxCost: x=23, y=828, oldCost=6.93: resultCost=6.93
+_interStrokeCost(23, 11)=4.85
+_maxCost: x=23, y=11, oldCost=6.93: resultCost=6.93
+maxCost: 819:23, 828:11, : cost=6.93
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=9.11
+calcCost: LEAVE: cost=9.11
+calcCost: ENTER: 823:19, 811:28
+calcCost: _handle_tsu_nu: 823:19, 811:28
+calcMultiStrokeCost: ENTER: 823:19 (OneShot), 811:28 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(823, 811)=4.85
+_maxCost: x=823, y=811, oldCost=0.0: resultCost=4.85
+_interStrokeCost(823, 28)=4.65
+_maxCost: x=823, y=28, oldCost=4.85: resultCost=4.85
+_interStrokeCost(19, 811)=5.78
+_maxCost: x=19, y=811, oldCost=4.85: resultCost=5.78
+_interStrokeCost(19, 28)=6.93
+_maxCost: x=19, y=28, oldCost=5.78: resultCost=6.93
+maxCost: 823:19, 811:28, : cost=6.93
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=9.11
+calcCost: LEAVE: cost=9.11
+calcCost: ENTER: 823:19, 828:11
+calcCost: _handle_tsu_nu: 823:19, 828:11
+calcMultiStrokeCost: ENTER: 823:19 (OneShot), 828:11 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(823, 828)=4.65
+_maxCost: x=823, y=828, oldCost=0.0: resultCost=4.65
+_interStrokeCost(823, 11)=4.85
+_maxCost: x=823, y=11, oldCost=4.65: resultCost=4.85
+_interStrokeCost(19, 828)=6.93
+_maxCost: x=19, y=828, oldCost=4.85: resultCost=6.93
+_interStrokeCost(19, 11)=5.78
+_maxCost: x=19, y=11, oldCost=6.93: resultCost=6.93
+maxCost: 823:19, 828:11, : cost=6.93
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=9.11
+calcCost: LEAVE: cost=9.11
+calcListCost: LEAVE: minCost=9.11
+4500: cost=9.11, score=100.17, total_score=10105710.69
+----
+5000: word=ぜあ, count=7, total_count=1180553
+main: mora1=ぜ, mora2=あ
+calcListCost: ENTER
+calcCost: ENTER: 819:20, 822:27
+calcCost: _handle_tsu_nu: 819:20, 822:27
+calcMultiStrokeCost: ENTER: 819:20 (OneShot), 822:27 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(819, 822)=5.81
+_maxCost: x=819, y=822, oldCost=0.0: resultCost=5.81
+_interStrokeCost(819, 27)=7.37
+_maxCost: x=819, y=27, oldCost=5.81: resultCost=7.37
+_interStrokeCost(20, 822)=7.75
+_maxCost: x=20, y=822, oldCost=7.37: resultCost=7.75
+_interStrokeCost(20, 27)=4.99
+_maxCost: x=20, y=27, oldCost=7.75: resultCost=7.75
+maxCost: 819:20, 822:27, : cost=7.75
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=9.92
+calcCost: LEAVE: cost=9.92
+calcListCost: new minCost=9.92
+calcCost: ENTER: 819:20, 827:22
+calcCost: _handle_tsu_nu: 819:20, 827:22
+calcMultiStrokeCost: ENTER: 819:20 (OneShot), 827:22 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(819, 827)=7.37
+_maxCost: x=819, y=827, oldCost=0.0: resultCost=7.37
+_interStrokeCost(819, 22)=5.81
+_maxCost: x=819, y=22, oldCost=7.37: resultCost=7.37
+_interStrokeCost(20, 827)=4.99
+_maxCost: x=20, y=827, oldCost=7.37: resultCost=7.37
+_interStrokeCost(20, 22)=7.75
+_maxCost: x=20, y=22, oldCost=7.37: resultCost=7.75
+maxCost: 819:20, 827:22, : cost=7.75
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=9.92
+calcCost: LEAVE: cost=9.92
+calcCost: ENTER: 820:19, 822:27
+calcCost: _handle_tsu_nu: 820:19, 822:27
+calcMultiStrokeCost: ENTER: 820:19 (OneShot), 822:27 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(820, 822)=7.75
+_maxCost: x=820, y=822, oldCost=0.0: resultCost=7.75
+_interStrokeCost(820, 27)=4.99
+_maxCost: x=820, y=27, oldCost=7.75: resultCost=7.75
+_interStrokeCost(19, 822)=5.81
+_maxCost: x=19, y=822, oldCost=7.75: resultCost=7.75
+_interStrokeCost(19, 27)=7.37
+_maxCost: x=19, y=27, oldCost=7.75: resultCost=7.75
+maxCost: 820:19, 822:27, : cost=7.75
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=9.92
+calcCost: LEAVE: cost=9.92
+calcCost: ENTER: 820:19, 827:22
+calcCost: _handle_tsu_nu: 820:19, 827:22
+calcMultiStrokeCost: ENTER: 820:19 (OneShot), 827:22 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(820, 827)=4.99
+_maxCost: x=820, y=827, oldCost=0.0: resultCost=4.99
+_interStrokeCost(820, 22)=7.75
+_maxCost: x=820, y=22, oldCost=4.99: resultCost=7.75
+_interStrokeCost(19, 827)=7.37
+_maxCost: x=19, y=827, oldCost=7.75: resultCost=7.75
+_interStrokeCost(19, 22)=5.81
+_maxCost: x=19, y=22, oldCost=7.75: resultCost=7.75
+maxCost: 820:19, 827:22, : cost=7.75
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=9.92
+calcCost: LEAVE: cost=9.92
+calcListCost: LEAVE: minCost=9.92
+5000: cost=9.92, score=69.46, total_score=10152205.63
+----
+5500: word=ぱろ, count=4, total_count=1183244
+main: mora1=ぱ, mora2=ろ
+calcListCost: ENTER
+calcCost: ENTER: 814:17, 812:28
+calcCost: _handle_tsu_nu: 814:17, 812:28
+calcMultiStrokeCost: ENTER: 814:17 (OneShot), 812:28 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(814, 812)=5.27
+_maxCost: x=814, y=812, oldCost=0.0: resultCost=5.27
+_interStrokeCost(814, 28)=4.62
+_maxCost: x=814, y=28, oldCost=5.27: resultCost=5.27
+_interStrokeCost(17, 812)=4.7
+_maxCost: x=17, y=812, oldCost=5.27: resultCost=5.27
+_interStrokeCost(17, 28)=5.2
+_maxCost: x=17, y=28, oldCost=5.27: resultCost=5.27
+maxCost: 814:17, 812:28, : cost=5.27
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=7.45
+calcCost: LEAVE: cost=7.45
+calcListCost: new minCost=7.45
+calcCost: ENTER: 814:17, 828:12
+calcCost: _handle_tsu_nu: 814:17, 828:12
+calcMultiStrokeCost: ENTER: 814:17 (OneShot), 828:12 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(814, 828)=4.62
+_maxCost: x=814, y=828, oldCost=0.0: resultCost=4.62
+_interStrokeCost(814, 12)=5.27
+_maxCost: x=814, y=12, oldCost=4.62: resultCost=5.27
+_interStrokeCost(17, 828)=5.2
+_maxCost: x=17, y=828, oldCost=5.27: resultCost=5.27
+_interStrokeCost(17, 12)=4.7
+_maxCost: x=17, y=12, oldCost=5.27: resultCost=5.27
+maxCost: 814:17, 828:12, : cost=5.27
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=7.45
+calcCost: LEAVE: cost=7.45
+calcCost: ENTER: 817:14, 812:28
+calcCost: _handle_tsu_nu: 817:14, 812:28
+calcMultiStrokeCost: ENTER: 817:14 (OneShot), 812:28 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(817, 812)=4.7
+_maxCost: x=817, y=812, oldCost=0.0: resultCost=4.7
+_interStrokeCost(817, 28)=5.2
+_maxCost: x=817, y=28, oldCost=4.7: resultCost=5.2
+_interStrokeCost(14, 812)=5.27
+_maxCost: x=14, y=812, oldCost=5.2: resultCost=5.27
+_interStrokeCost(14, 28)=4.62
+_maxCost: x=14, y=28, oldCost=5.27: resultCost=5.27
+maxCost: 817:14, 812:28, : cost=5.27
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=7.45
+calcCost: LEAVE: cost=7.45
+calcCost: ENTER: 817:14, 828:12
+calcCost: _handle_tsu_nu: 817:14, 828:12
+calcMultiStrokeCost: ENTER: 817:14 (OneShot), 828:12 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(817, 828)=5.2
+_maxCost: x=817, y=828, oldCost=0.0: resultCost=5.2
+_interStrokeCost(817, 12)=4.7
+_maxCost: x=817, y=12, oldCost=5.2: resultCost=5.2
+_interStrokeCost(14, 828)=4.62
+_maxCost: x=14, y=828, oldCost=5.2: resultCost=5.2
+_interStrokeCost(14, 12)=5.27
+_maxCost: x=14, y=12, oldCost=5.2: resultCost=5.27
+maxCost: 817:14, 828:12, : cost=5.27
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=7.45
+calcCost: LEAVE: cost=7.45
+calcListCost: LEAVE: minCost=7.45
+5500: cost=7.45, score=29.8, total_score=10181942.43
+----
+6000: word=れへ, count=2, total_count=1184909
+main: mora1=れ, mora2=へ
+calcListCost: ENTER
+calcCost: ENTER: 812:29, 813:29
+calcCost: _handle_tsu_nu: 812:29, 813:29
+_xchgShift: ENTER: combo=813:29
+_xchgShift: LEAVE: combo=829:13
+_xchgShift: ENTER: combo=812:29
+_xchgShift: LEAVE: combo=829:12
+calcMultiStrokeCost: ENTER: 829:12 (OneShot), 829:13 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(829, 829)=6.33
+_maxCost: x=829, y=829, oldCost=0.0: resultCost=6.33
+_interStrokeCost(829, 13)=4.7
+_maxCost: x=829, y=13, oldCost=6.33: resultCost=6.33
+_interStrokeCost(12, 829)=4.62
+_maxCost: x=12, y=829, oldCost=6.33: resultCost=6.33
+_interStrokeCost(12, 13)=4.58
+_maxCost: x=12, y=13, oldCost=6.33: resultCost=6.33
+maxCost: 829:12, 829:13, : cost=6.33
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=8.51
+calcCost: LEAVE: cost=8.51
+calcListCost: new minCost=8.51
+calcCost: ENTER: 829:12, 829:13
+calcCost: _handle_tsu_nu: 829:12, 829:13
+calcMultiStrokeCost: ENTER: 829:12 (OneShot), 829:13 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(829, 829)=6.33
+_maxCost: x=829, y=829, oldCost=0.0: resultCost=6.33
+_interStrokeCost(829, 13)=4.7
+_maxCost: x=829, y=13, oldCost=6.33: resultCost=6.33
+_interStrokeCost(12, 829)=4.62
+_maxCost: x=12, y=829, oldCost=6.33: resultCost=6.33
+_interStrokeCost(12, 13)=4.58
+_maxCost: x=12, y=13, oldCost=6.33: resultCost=6.33
+maxCost: 829:12, 829:13, : cost=6.33
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=8.51
+calcCost: LEAVE: cost=8.51
+calcCost: ENTER: 829:12, 829:13
+calcCost: _handle_tsu_nu: 829:12, 829:13
+calcMultiStrokeCost: ENTER: 829:12 (OneShot), 829:13 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(829, 829)=6.33
+_maxCost: x=829, y=829, oldCost=0.0: resultCost=6.33
+_interStrokeCost(829, 13)=4.7
+_maxCost: x=829, y=13, oldCost=6.33: resultCost=6.33
+_interStrokeCost(12, 829)=4.62
+_maxCost: x=12, y=829, oldCost=6.33: resultCost=6.33
+_interStrokeCost(12, 13)=4.58
+_maxCost: x=12, y=13, oldCost=6.33: resultCost=6.33
+maxCost: 829:12, 829:13, : cost=6.33
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=8.51
+calcCost: LEAVE: cost=8.51
+calcCost: ENTER: 829:12, 829:13
+calcCost: _handle_tsu_nu: 829:12, 829:13
+calcMultiStrokeCost: ENTER: 829:12 (OneShot), 829:13 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(829, 829)=6.33
+_maxCost: x=829, y=829, oldCost=0.0: resultCost=6.33
+_interStrokeCost(829, 13)=4.7
+_maxCost: x=829, y=13, oldCost=6.33: resultCost=6.33
+_interStrokeCost(12, 829)=4.62
+_maxCost: x=12, y=829, oldCost=6.33: resultCost=6.33
+_interStrokeCost(12, 13)=4.58
+_maxCost: x=12, y=13, oldCost=6.33: resultCost=6.33
+maxCost: 829:12, 829:13, : cost=6.33
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=8.51
+calcCost: LEAVE: cost=8.51
+calcListCost: LEAVE: minCost=8.51
+6000: cost=8.51, score=17.01, total_score=10201686.64
+----
+6500: word=ぽみ, count=1, total_count=1185863
+main: mora1=ぽ, mora2=み
+calcListCost: ENTER
+calcCost: ENTER: 814:18, 814:26
+calcCost: _handle_tsu_nu: 814:18, 814:26
+calcMultiStrokeCost: ENTER: 814:18 (OneShot), 814:26 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(814, 814)=5.51
+_maxCost: x=814, y=814, oldCost=0.0: resultCost=5.51
+_interStrokeCost(814, 26)=4.72
+_maxCost: x=814, y=26, oldCost=5.51: resultCost=5.51
+_interStrokeCost(18, 814)=5.53
+_maxCost: x=18, y=814, oldCost=5.51: resultCost=5.53
+_interStrokeCost(18, 26)=4.97
+_maxCost: x=18, y=26, oldCost=5.53: resultCost=5.53
+maxCost: 814:18, 814:26, : cost=5.53
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=7.7
+calcCost: LEAVE: cost=7.7
+calcListCost: new minCost=7.7
+calcCost: ENTER: 814:18, 826:14
+calcCost: _handle_tsu_nu: 814:18, 826:14
+_xchgShift: ENTER: combo=826:14
+_xchgShift: LEAVE: combo=814:26
+calcMultiStrokeCost: ENTER: 814:18 (OneShot), 814:26 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(814, 814)=5.51
+_maxCost: x=814, y=814, oldCost=0.0: resultCost=5.51
+_interStrokeCost(814, 26)=4.72
+_maxCost: x=814, y=26, oldCost=5.51: resultCost=5.51
+_interStrokeCost(18, 814)=5.53
+_maxCost: x=18, y=814, oldCost=5.51: resultCost=5.53
+_interStrokeCost(18, 26)=4.97
+_maxCost: x=18, y=26, oldCost=5.53: resultCost=5.53
+maxCost: 814:18, 814:26, : cost=5.53
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=7.7
+calcCost: LEAVE: cost=7.7
+calcCost: ENTER: 818:14, 814:26
+calcCost: _handle_tsu_nu: 818:14, 814:26
+_xchgShift: ENTER: combo=818:14
+_xchgShift: LEAVE: combo=814:18
+calcMultiStrokeCost: ENTER: 814:18 (OneShot), 814:26 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(814, 814)=5.51
+_maxCost: x=814, y=814, oldCost=0.0: resultCost=5.51
+_interStrokeCost(814, 26)=4.72
+_maxCost: x=814, y=26, oldCost=5.51: resultCost=5.51
+_interStrokeCost(18, 814)=5.53
+_maxCost: x=18, y=814, oldCost=5.51: resultCost=5.53
+_interStrokeCost(18, 26)=4.97
+_maxCost: x=18, y=26, oldCost=5.53: resultCost=5.53
+maxCost: 814:18, 814:26, : cost=5.53
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=7.7
+calcCost: LEAVE: cost=7.7
+calcCost: ENTER: 814:18, 814:26
+calcCost: _handle_tsu_nu: 814:18, 814:26
+calcMultiStrokeCost: ENTER: 814:18 (OneShot), 814:26 (OneShot)
+calcMultiStrokeCost: first is OneShot
+_interStrokeCost(814, 814)=5.51
+_maxCost: x=814, y=814, oldCost=0.0: resultCost=5.51
+_interStrokeCost(814, 26)=4.72
+_maxCost: x=814, y=26, oldCost=5.51: resultCost=5.51
+_interStrokeCost(18, 814)=5.53
+_maxCost: x=18, y=814, oldCost=5.51: resultCost=5.53
+_interStrokeCost(18, 26)=4.97
+_maxCost: x=18, y=26, oldCost=5.53: resultCost=5.53
+maxCost: 814:18, 814:26, : cost=5.53
+_shiftCost: Double: 2.18
+calcMultiStrokeCost: LEAVE: cost=7.7
+calcCost: LEAVE: cost=7.7
+calcListCost: LEAVE: minCost=7.7
+6500: cost=7.7, score=7.7, total_score=10212478.45
+----
+score = 8.61; total_score = 10214414.88, total_count = 1186089
